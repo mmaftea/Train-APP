@@ -1,4 +1,4 @@
-package com.app.train.Entities;
+package com.app.train.model.Entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import java.time.LocalTime;
 @Setter
 @Entity
 @Table(name = "routestation")
-public class Routestation {
+public class Routestation implements HasId<Integer>{
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

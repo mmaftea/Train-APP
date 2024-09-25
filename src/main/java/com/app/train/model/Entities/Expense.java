@@ -1,10 +1,9 @@
-package com.app.train.Entities;
+package com.app.train.model.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,15 +11,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "train")
-public class Train {
+@Table(name = "expense")
+public class Expense implements HasId<Integer> {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Size(max = 25)
-    @NotNull
-    @Column(name = "name", nullable = false, length = 25)
-    private String name;
+    @Size(max = 20)
+    @Column(name = "category", length = 20)
+    private String category;
+
+    @Column(name = "expense_price")
+    private Float expensePrice;
 
 }

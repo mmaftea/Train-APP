@@ -1,4 +1,4 @@
-package com.app.train.Entities;
+package com.app.train.model.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "station")
-public class Station {
+public class Station implements HasId<Integer>{
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

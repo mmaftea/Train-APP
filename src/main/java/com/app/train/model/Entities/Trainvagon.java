@@ -1,4 +1,4 @@
-package com.app.train.Entities;
+package com.app.train.model.Entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "trainvagon")
-public class Trainvagon {
+public class Trainvagon{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "train_loaded_vagons_id")
     private Trainloadedvagon trainLoadedVagons;

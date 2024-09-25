@@ -1,4 +1,4 @@
-package com.app.train.Entities;
+package com.app.train.model.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "vagon_class")
-public class VagonClass {
+public class VagonClass implements HasId<String>{
     @Id
     @Size(max = 25)
     @Column(name = "id", nullable = false, length = 25)
