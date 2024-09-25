@@ -1,21 +1,30 @@
 CREATE TABLE BaseTicket(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    ticket_travel_id INT,
+    travel_id INT,
     boarding_station_index INT,
     exit_station_index INT,
     seat_number INT,
-    train_vagon_id INT,
-	ticket_price FLOAT,
-    FOREIGN KEY (train_vagon_id) REFERENCES Train_Vagon(id) ON DELETE CASCADE,
-    FOREIGN KEY (ticket_travel_id)REFERENCES Travel(id)
+    vagon_index INT,
+	price FLOAT,
+
+    FOREIGN KEY (travel_id)REFERENCES Travel(id)
 );
 
-CREATE TABLE BaseTicket(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    ticket_travel_id INT,
-    boarding_station_index INT,
-    exit_station_index INT,
-	ticket_price FLOAT,
+CREATE TABLE PassDocumentData(
+                                 idnp VARCHAR(16) PRIMARY KEY,
+                                 name VARCHAR(50),
+                                 surname VARCHAR(50),
+                                 date_of_birth DATE,
+                                 date_of_issue DATE,
+                                 date_of_expiry DATE
+);
 
-    FOREIGN KEY (ticket_travel_id)REFERENCES Travel(id)
+
+CREATE TABLE InterNationalTicket(
+                                    id INT AUTO_INCREMENT PRIMARY KEY,
+                                    inter_national_base_ticket_id INT,
+                                    inter_national_pass_document_data_id VARCHAR(16),
+
+                                    FOREIGN KEY (inter_national_base_ticket_id)REFERENCES BaseTicket(id),
+                                    FOREIGN KEY (inter_national_pass_document_data_id)REFERENCES PassDocumentData(idnp)
 );

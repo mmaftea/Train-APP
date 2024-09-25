@@ -3,12 +3,11 @@ CREATE TABLE Route (
     route_name VARCHAR(100) NOT NULL
 );
 
-
 CREATE TABLE RouteStation (
     id INT AUTO_INCREMENT PRIMARY KEY,
     route_id INT NOT NULL,
     station_id INT NOT NULL,
-    station_index INT NOT NULL,
+    station_index INT,
     distance INT,
     duration TIME,
     departure_duration TIME,

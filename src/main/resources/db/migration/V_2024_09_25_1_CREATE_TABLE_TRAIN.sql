@@ -1,0 +1,4 @@
+CREATE TABLE Train (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(25) NOT NULL
+);
