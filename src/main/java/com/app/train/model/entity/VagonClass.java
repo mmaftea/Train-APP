@@ -1,4 +1,4 @@
-package com.app.train.model.Entities;
+package com.app.train.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

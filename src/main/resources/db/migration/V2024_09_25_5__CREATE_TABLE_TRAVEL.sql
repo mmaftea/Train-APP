@@ -1,9 +1,3 @@
-CREATE TABLE TrainLoadedVagons(
-    id INT AUTO_INCREMENT PRIMARY KEY ,
-    train_id INT,
-    FOREIGN KEY (train_id) REFERENCES train(id)
-);
-
 CREATE TABLE TrainVagon(
     train_loaded_vagons_id INT,
     vagon_id INT,

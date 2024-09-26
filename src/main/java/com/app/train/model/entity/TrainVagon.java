@@ -1,4 +1,4 @@
-package com.app.train.model.Entities;
+package com.app.train.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,10 +8,14 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "trainvagon")
-public class Trainvagon{
+public class TrainVagon implements HasId<Integer> {
+    @Id
+    @Column(name = "id", nullable = false)
+    private Integer id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "train_loaded_vagons_id")
-    private Trainloadedvagon trainLoadedVagons;
+    private TrainLoadedVagon trainLoadedVagons;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vagon_id")

@@ -1,4 +1,4 @@
-package com.app.train.model.Entities;
+package com.app.train.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "baseticket")
-public class Baseticket implements HasId<Integer>{
+public class BaseTicket implements HasId<Integer>{
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

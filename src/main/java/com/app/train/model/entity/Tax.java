@@ -1,4 +1,4 @@
-package com.app.train.model.Entities;
+package com.app.train.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -15,7 +15,7 @@ public class Tax implements HasId<Integer>{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tax_base_ticket_id")
-    private Baseticket taxBaseTicket;
+    private BaseTicket taxBaseTicket;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tax_expense_id")

@@ -1,4 +1,4 @@
-package com.app.train.model.Entities;
+package com.app.train.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -26,7 +26,7 @@ public class Travel implements HasId<Integer>{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "travel_train_loaded_vagons_id")
-    private Trainloadedvagon travelTrainLoadedVagons;
+    private TrainLoadedVagon travelTrainLoadedVagons;
 
     @Column(name = "start_date_time")
     private Instant startDateTime;
