@@ -1,0 +1,2 @@
+09-26 15:59:51.817 [rtedMain] WARN | org.flywaydb.core.internal.logging.slf4j.Slf4jLog.warn:41 No migrations found. Are your locations set up correctly?
+09-26 15:59:57.985 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning

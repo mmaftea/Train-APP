@@ -1,6 +1,13 @@
 package com.app.train.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,19 +20,19 @@ import java.time.LocalTime;
 @Setter
 @Entity
 @Table(name = "routestation")
-public class RouteStation implements HasId<Integer>{
+public class RouteStation implements HasId<Integer> {
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "route_id", nullable = false)
     private Route route;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "station_id", nullable = false)
     private Station station;
@@ -41,5 +48,4 @@ public class RouteStation implements HasId<Integer>{
 
     @Column(name = "departure_duration")
     private LocalTime departureDuration;
-
 }
