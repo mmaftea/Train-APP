@@ -9,12 +9,15 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalTime;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -44,8 +47,9 @@ public class RouteStation implements HasId<Integer> {
     private Integer distance;
 
     @Column(name = "duration")
-    private LocalTime duration;
+    private Integer duration;
 
     @Column(name = "departure_duration")
     private LocalTime departureDuration;
+
 }

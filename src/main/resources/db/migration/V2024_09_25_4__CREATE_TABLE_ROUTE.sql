@@ -9,7 +9,7 @@ CREATE TABLE RouteStation (
     station_id INT NOT NULL,
     station_index INT,
     distance INT,
-    duration TIME,
+    duration INT,
     departure_duration TIME,
     FOREIGN KEY (station_id) REFERENCES Station(id) ON DELETE CASCADE,
     FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
