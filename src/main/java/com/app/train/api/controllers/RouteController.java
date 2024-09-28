@@ -22,7 +22,12 @@ public class RouteController {
     private final RouteServiceImpl service;
 
     @GetMapping
-    public List<List<Route>> getAllApartments(@RequestParam Integer startStationId, @RequestParam Integer endStationId) {
-        return service.getTransferRoutes(startStationId, endStationId);
+    public List<List<String>> getAllRoutes(@RequestParam Integer startStationId, @RequestParam Integer endStationId) {
+        return service.getAllRoutesThroughPoints(startStationId, endStationId);
+    }
+
+    @GetMapping("/fastest")
+    public List<Route> getFastestRoute(@RequestParam Integer startStationId, @RequestParam Integer endStationId) {
+        return service.findFastestRoute(startStationId, endStationId);
     }
 }

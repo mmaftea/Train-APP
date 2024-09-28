@@ -45,7 +45,7 @@
 @GOTO :EOF
 : end batch / begin powershell #>
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "com.app.train.model.trash.Stop"
 if ($env:MVNW_VERBOSE -eq "true") {
   $VerbosePreference = "Continue"
 }

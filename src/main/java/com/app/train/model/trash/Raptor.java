@@ -1,4 +1,4 @@
-package com.app.train.model;
+package com.app.train.model.trash;
 
 import com.app.train.model.entity.Route;
 import com.app.train.model.entity.RouteStation;

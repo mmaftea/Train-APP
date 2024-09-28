@@ -21,35 +21,35 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "routestation")
-public class RouteStation implements HasId<Integer> {
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @Entity
+    @Table(name = "routestation")
+    public class RouteStation implements HasId<Integer> {
+        @Id
+        @Column(name = "id", nullable = false)
+        private Integer id;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "route_id", nullable = false)
-    private Route route;
+        @NotNull
+        @ManyToOne(fetch = FetchType.EAGER, optional = false)
+        @OnDelete(action = OnDeleteAction.CASCADE)
+        @JoinColumn(name = "route_id", nullable = false)
+        private Route route;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "station_id", nullable = false)
-    private Station station;
+        @NotNull
+        @ManyToOne(fetch = FetchType.EAGER, optional = false)
+        @OnDelete(action = OnDeleteAction.CASCADE)
+        @JoinColumn(name = "station_id", nullable = false)
+        private Station station;
 
-    @Column(name = "station_index")
-    private Integer stationIndex;
+        @Column(name = "station_index")
+        private Integer stationIndex;
 
-    @Column(name = "distance")
-    private Integer distance;
+        @Column(name = "distance")
+        private Integer distance;
 
-    @Column(name = "duration")
-    private Integer duration;
+        @Column(name = "duration")
+        private Integer duration;
 
-    @Column(name = "departure_duration")
-    private LocalTime departureDuration;
+        @Column(name = "departure_duration")
+        private LocalTime departureDuration;
 
-}
+    }

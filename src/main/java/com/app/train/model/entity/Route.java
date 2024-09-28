@@ -6,12 +6,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
+import java.util.Objects;
 
 @Getter
 @Setter
 @Entity
+@ToString
 @Table(name = "route")
 public class Route implements HasId<Integer>{
     @Id
