@@ -7,6 +7,7 @@ import com.app.train.model.entity.Route;
 import com.app.train.model.entity.RouteStation;
 import com.app.train.model.entity.Station;
 import com.app.train.util.raptor.FastestRaptor;
+import com.app.train.util.raptor.PathFinder;
 import com.app.train.util.raptor.SimpleRaptor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,7 @@ public class RouteServiceImpl {
     private final StationRepository stationRepository;
     private final RouteRepository routeRepository;
     private final RouteStationRepository repository;
+    private final RouteStationServiceImpl service;
 
     public List<List<String>> getAllRoutesThroughPoints(Integer a, Integer b) {
         return callRaptor(a, b);
@@ -89,6 +91,19 @@ public class RouteServiceImpl {
         }
 
         return stationRouteMap;
+    }
+
+    public List<Route> findFastestPath(Integer startStationId, Integer endStationId) {
+        PathFinder pathFinder = new PathFinder(service);
+
+        Station startStation = stationRepository.findById(startStationId)
+                .orElseThrow(() -> new RuntimeException("Start station not found"));
+
+        Station endStation = stationRepository.findById(endStationId)
+                .orElseThrow(() -> new RuntimeException("End station not found"));
+
+        // Call the findFastestPath method from PathFinder
+        return pathFinder.findFastestPath(startStation, endStation);
     }
 
 }

@@ -158,3 +158,4 @@ Caused by: java.sql.SQLException: Access denied for user 'Eu'@'localhost' (using
 	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
 	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
 	... 26 common frames omitted
+10-03 17:44:53.151 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
