@@ -2,18 +2,24 @@ package com.app.train.dao.interfaces;
 
 import com.app.train.model.entity.Route;
 import com.app.train.model.entity.RouteStation;
-import com.app.train.model.entity.Station;
+import com.app.train.model.entity.TrainLine;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface RouteStationRepository extends JpaRepository<RouteStation, Integer> {
-    List<RouteStation> findByStation(Station station);
 
-    RouteStation findTopByRouteAndStationIndexLessThanOrderByStationIndexDesc(Route route, int stationIndex);
 
-    List<RouteStation> findByRouteAndStationIndexGreaterThanOrderByStationIndexAsc(Route route, int stationIndex);
+    @Query("SELECT r FROM RouteStation r WHERE r.lineElement.station.id = :station AND r.route = :route")
+    Optional<RouteStation> findByStationAndRoute(@Param("station") Integer station, @Param("route") Route route);
+
+    @Query("SELECT DISTINCT r.lineElement.trainLine FROM RouteStation r WHERE r.stationIndex >= :start and r.stationIndex <=:end and r.route = :route")
+    List<TrainLine> getTrainLinesInBetweenStations(@Param("start") Integer startIndex, @Param("end") Integer endIndex, @Param("route") Route route);
+
 
 }

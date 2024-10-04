@@ -16,9 +16,9 @@ public class Raptor {
 
 
         for (RouteStation routeStation : routeStations) {
-            stationToRouteStations
-                    .computeIfAbsent(routeStation.getStation(), k -> new ArrayList<>())
-                    .add(routeStation);
+//            stationToRouteStations
+//                    .computeIfAbsent(routeStation.getStation(), k -> new ArrayList<>())
+//                    .add(routeStation);
         }
 
 
@@ -43,16 +43,16 @@ public class Raptor {
 
             for (RouteStation rs : stationToRouteStations.getOrDefault(currentStation, Collections.emptyList())) {
                 Route currentRoute = rs.getRoute();
-                List<List<Route>> nextRoutes = routesMap.computeIfAbsent(rs.getStation(), k -> new ArrayList<>());
+//                List<List<Route>> nextRoutes = routesMap.computeIfAbsent(rs.getStation(), k -> new ArrayList<>());
 
                 for (List<Route> routeList : currentRoutes) {
                     List<Route> newRouteList = new ArrayList<>(routeList);
                     newRouteList.add(currentRoute);
 
-                    if (!nextRoutes.contains(newRouteList)) {
-                        nextRoutes.add(newRouteList);
-                        nextStations.add(rs.getStation());
-                    }
+//                    if (!nextRoutes.contains(newRouteList)) {
+//                        nextRoutes.add(newRouteList);
+//                        nextStations.add(rs.getStation());
+//                    }
                 }
             }
 

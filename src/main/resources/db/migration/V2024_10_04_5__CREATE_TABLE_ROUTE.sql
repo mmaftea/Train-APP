@@ -5,12 +5,11 @@ CREATE TABLE Route (
 
 CREATE TABLE RouteStation (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    route_id INT NOT NULL,
-    station_id INT NOT NULL,
+    route_id INT,
+    line_Element INT,
     station_index INT,
     distance INT,
-    duration INT,
-    departure_duration TIME,
-    FOREIGN KEY (station_id) REFERENCES Station(id) ON DELETE CASCADE,
+    departure_duration INT,
+    FOREIGN KEY (line_Element) REFERENCES TrainLine_Element(id) ON DELETE CASCADE,
     FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
 );

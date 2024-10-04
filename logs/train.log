@@ -1,15 +1,135 @@
-10-03 17:08:15.660 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
+10-04 13:15:49.909 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'routeController' defined in file [D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\com\app\train\api\controllers\RouteController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'routeServiceImpl' defined in file [D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\com\app\train\service\impl\RouteServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'routeStationRepository' defined in com.app.train.dao.interfaces.RouteStationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); Reason: Failed to create query for method public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); No property 'station' found for type 'RouteStation'
+10-04 13:15:50.039 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'routeController' defined in file [D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\com\app\train\api\controllers\RouteController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'routeServiceImpl' defined in file [D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\com\app\train\service\impl\RouteServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'routeStationRepository' defined in com.app.train.dao.interfaces.RouteStationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); Reason: Failed to create query for method public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); No property 'station' found for type 'RouteStation'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.app.train.TrainApplication.main(TrainApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'routeServiceImpl' defined in file [D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\com\app\train\service\impl\RouteServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'routeStationRepository' defined in com.app.train.dao.interfaces.RouteStationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); Reason: Failed to create query for method public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); No property 'station' found for type 'RouteStation'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 22 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'routeStationRepository' defined in com.app.train.dao.interfaces.RouteStationRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Could not create query for public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); Reason: Failed to create query for method public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); No property 'station' found for type 'RouteStation'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782)
+	... 36 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); Reason: Failed to create query for method public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); No property 'station' found for type 'RouteStation'
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:119)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:103)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:92)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:92)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:357)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:286)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135)
+	at org.springframework.data.util.Lazy.get(Lazy.java:113)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:292)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 47 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.app.train.dao.interfaces.RouteStationRepository.findByStation(com.app.train.model.entity.Station); No property 'station' found for type 'RouteStation'
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:107)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:124)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:258)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:95)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:115)
+	... 59 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'station' found for type 'RouteStation'
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:94)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:455)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:431)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:384)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:366)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:344)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:259)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:260)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:389)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:390)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:103)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:101)
+	... 63 common frames omitted
+10-04 13:28:48.921 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-04 16:06:20.747 [rtedMain] ERROR| org.flywaydb.core.internal.logging.slf4j.Slf4jLog.error:45 Migration of schema `trains` to version "2024.10.04.10 - INSERT MOLDOVA LINES" failed! Please restore backups and roll back database and code!
+10-04 16:06:20.789 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42000
+Error Code : 1064
+Message    : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3, 'Kolbasna-Balti')' at line 1
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 8
+Statement  : 3, 'Kolbasna-Balti')
 
-10-03 17:08:15.722 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
+10-04 16:06:20.899 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42000
+Error Code : 1064
+Message    : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3, 'Kolbasna-Balti')' at line 1
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 8
+Statement  : 3, 'Kolbasna-Balti')
 
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
@@ -21,15 +141,18 @@ Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
-	at com.app.train.model.trash.EmailCompartiment.Main.main(Main.java:11)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.app.train.TrainApplication.main(TrainApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42000
+Error Code : 1064
+Message    : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3, 'Kolbasna-Balti')' at line 1
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 8
+Statement  : 3, 'Kolbasna-Balti')
 
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
@@ -40,64 +163,96 @@ Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
 	... 13 common frames omitted
-Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42000
+Error Code : 1064
+Message    : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3, 'Kolbasna-Balti')' at line 1
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 8
+Statement  : 3, 'Kolbasna-Balti')
 
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
-	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:72)
-	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:134)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.database.mysql.MySQLNamedLockTemplate.execute(MySQLNamedLockTemplate.java:58)
+	at org.flywaydb.database.mysql.MySQLConnection.lock(MySQLConnection.java:150)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:145)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:202)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:205)
 	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
-	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at com.app.train.api.config.ServletConfig.lambda$flywayCleanMigrationStrategy$0(ServletConfig.java:22)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:62)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
 	... 20 common frames omitted
-Caused by: java.sql.SQLException: Access denied for user 'Eu'@'localhost' (using password: YES)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42000
+Error Code : 1064
+Message    : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3, 'Kolbasna-Balti')' at line 1
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 8
+Statement  : 3, 'Kolbasna-Balti')
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:133)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:65)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 37 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '3, 'Kolbasna-Balti')' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:120)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
-	... 26 common frames omitted
-10-03 17:09:18.176 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-10-03 17:09:18.519 [rtedMain] ERROR| o.s.boot.diagnostics.LoggingFailureAnalysisReporter.report:40 
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:89)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:206)
+	... 43 common frames omitted
+10-04 16:07:09.032 [rtedMain] ERROR| org.flywaydb.core.internal.logging.slf4j.Slf4jLog.error:45 Migration of schema `trains` to version "2024.10.04.10 - INSERT MOLDOVA LINES" failed! Please restore backups and roll back database and code!
+10-04 16:07:09.056 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 23000
+Error Code : 1062
+Message    : Duplicate entry '3' for key 'trainline.PRIMARY'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 1
+Statement  : insert into
+  trainline
+  (id, name)
+values
+  (1, 'Balti-Ocnita'),
+  (2, 'Ocnita-Balti'),
+  (3, 'Balti-Kolbasna'),
+  (3, 'Kolbasna-Balti')
 
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web application could not be started as there was no org.springframework.boot.web.servlet.server.ServletWebServerFactory bean defined in the context.
-
-Action:
-
-Check your application's dependencies for a supported servlet web server.
-Check the configured web application type.
-
-10-03 17:10:18.898 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
-
-10-03 17:10:18.943 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
+10-04 16:07:09.151 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 23000
+Error Code : 1062
+Message    : Duplicate entry '3' for key 'trainline.PRIMARY'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 1
+Statement  : insert into
+  trainline
+  (id, name)
+values
+  (1, 'Balti-Ocnita'),
+  (2, 'Ocnita-Balti'),
+  (3, 'Balti-Kolbasna'),
+  (3, 'Kolbasna-Balti')
 
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
@@ -109,15 +264,25 @@ Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
-	at com.app.train.model.trash.EmailCompartiment.Main.main(Main.java:11)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.app.train.TrainApplication.main(TrainApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 23000
+Error Code : 1062
+Message    : Duplicate entry '3' for key 'trainline.PRIMARY'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 1
+Statement  : insert into
+  trainline
+  (id, name)
+values
+  (1, 'Balti-Ocnita'),
+  (2, 'Ocnita-Balti'),
+  (3, 'Balti-Kolbasna'),
+  (3, 'Kolbasna-Balti')
 
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
@@ -128,34 +293,1997 @@ Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
 	... 13 common frames omitted
-Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: Access denied for user 'Eu'@'localhost' (using password: YES)
---------------------------------------------------------------------------------------------------------
-SQL State  : 28000
-Error Code : 1045
-Message    : Access denied for user 'Eu'@'localhost' (using password: YES)
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 23000
+Error Code : 1062
+Message    : Duplicate entry '3' for key 'trainline.PRIMARY'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 1
+Statement  : insert into
+  trainline
+  (id, name)
+values
+  (1, 'Balti-Ocnita'),
+  (2, 'Ocnita-Balti'),
+  (3, 'Balti-Kolbasna'),
+  (3, 'Kolbasna-Balti')
 
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
-	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:72)
-	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:134)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.database.mysql.MySQLNamedLockTemplate.execute(MySQLNamedLockTemplate.java:58)
+	at org.flywaydb.database.mysql.MySQLConnection.lock(MySQLConnection.java:150)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:145)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:202)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:205)
 	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
-	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at com.app.train.api.config.ServletConfig.lambda$flywayCleanMigrationStrategy$0(ServletConfig.java:22)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:62)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
 	... 20 common frames omitted
-Caused by: java.sql.SQLException: Access denied for user 'Eu'@'localhost' (using password: YES)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 23000
+Error Code : 1062
+Message    : Duplicate entry '3' for key 'trainline.PRIMARY'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 1
+Statement  : insert into
+  trainline
+  (id, name)
+values
+  (1, 'Balti-Ocnita'),
+  (2, 'Ocnita-Balti'),
+  (3, 'Balti-Kolbasna'),
+  (3, 'Kolbasna-Balti')
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:133)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:65)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 37 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '3' for key 'trainline.PRIMARY'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:120)
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
-	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
-	... 26 common frames omitted
-10-03 17:44:53.151 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:89)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:206)
+	... 43 common frames omitted
+10-04 16:07:32.786 [rtedMain] ERROR| org.flywaydb.core.internal.logging.slf4j.Slf4jLog.error:45 Migration of schema `trains` to version "2024.10.04.10 - INSERT MOLDOVA LINES" failed! Please restore backups and roll back database and code!
+10-04 16:07:32.808 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'train_line' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, train_line, station_id, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+10-04 16:07:32.893 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'train_line' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, train_line, station_id, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.app.train.TrainApplication.main(TrainApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'train_line' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, train_line, station_id, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 13 common frames omitted
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'train_line' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, train_line, station_id, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.database.mysql.MySQLNamedLockTemplate.execute(MySQLNamedLockTemplate.java:58)
+	at org.flywaydb.database.mysql.MySQLConnection.lock(MySQLConnection.java:150)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:145)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:202)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:205)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
+	at com.app.train.api.config.ServletConfig.lambda$flywayCleanMigrationStrategy$0(ServletConfig.java:22)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:62)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 20 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'train_line' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, train_line, station_id, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:133)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:65)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 37 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'train_line' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:89)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:206)
+	... 43 common frames omitted
+10-04 16:08:42.997 [rtedMain] ERROR| org.flywaydb.core.internal.logging.slf4j.Slf4jLog.error:45 Migration of schema `trains` to version "2024.10.04.11 - INSERT MOLDOVA ROUTE" failed! Please restore backups and roll back database and code!
+10-04 16:08:43.022 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'line_element' in 'field list'
+Location   : db/migration/V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql)
+Line       : 23
+Statement  : insert into
+  routestation
+  (id, route_id, line_element, station_index, departure_duration)
+values
+  -- (id,route,lineElement,index,waiting)
+  -- balti - ocnita
+  (1, 2, 1, 0, 0),
+  (2, 2, 2, 1, 1),
+  (3, 2, 3, 2, 1),
+  (4, 2, 4, 3, 1),
+  (5, 2, 5, 4, 1),
+  (6, 2, 6, 5, 1),
+  (7, 2, 7, 6, 1),
+  (8, 2, 8, 7, 1),
+  (9, 2, 9, 8, 1),
+  (10, 2, 10, 9, 1),
+  (11, 2, 11, 10, 0),
+
+  -- ocnita - balti
+  (12, 1, 12, 0, 0),
+  (13, 1, 13, 1, 1),
+  (14, 1, 14, 2, 1),
+  (15, 1, 15, 3, 1),
+  (16, 1, 16, 4, 1),
+  (17, 1, 17, 5, 1),
+  (18, 1, 18, 6, 1),
+  (19, 1, 19, 7, 1),
+  (20, 1, 20, 8, 1),
+  (21, 1, 21, 9, 1),
+  (22, 1, 22, 10, 0),
+
+  -- balti - ribnita
+  (23, 3, 23, 0, 0),
+  (24, 3, 24, 1, 1),
+  (25, 3, 25, 2, 1),
+  (26, 3, 26, 3, 1),
+  (27, 3, 27, 4, 1),
+  (28, 3, 28, 5, 1),
+  (29, 3, 29, 6, 1),
+  (30, 3, 30, 7, 1),
+  (31, 3, 31, 8, 1),
+  (32, 3, 32, 9, 1),
+  (33, 3, 33, 10, 1),
+  (34, 3, 34, 11, 1),
+  (35, 3, 35, 12, 1),
+  (36, 3, 36, 13, 1),
+  (37, 3, 37, 14, 1),
+  (38, 3, 38, 15, 0),
+
+    -- ribnita - balti
+  (39, 4, 47, 0, 0),
+  (40, 4, 48, 1, 1),
+  (41, 4, 49, 2, 1),
+  (42, 4, 50, 3, 1),
+  (43, 4, 51, 4, 1),
+  (44, 4, 52, 5, 1),
+  (45, 4, 53, 6, 1),
+  (46, 4, 54, 7, 1),
+  (47, 4, 55, 8, 1),
+  (48, 4, 56, 9, 1),
+  (49, 4, 57, 10, 1),
+  (50, 4, 58, 11, 1),
+  (51, 4, 59, 12, 1),
+  (52, 4, 60, 13, 1),
+  (53, 4, 61, 14, 1),
+  (54, 4, 62, 15, 0)
+
+10-04 16:08:43.122 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'line_element' in 'field list'
+Location   : db/migration/V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql)
+Line       : 23
+Statement  : insert into
+  routestation
+  (id, route_id, line_element, station_index, departure_duration)
+values
+  -- (id,route,lineElement,index,waiting)
+  -- balti - ocnita
+  (1, 2, 1, 0, 0),
+  (2, 2, 2, 1, 1),
+  (3, 2, 3, 2, 1),
+  (4, 2, 4, 3, 1),
+  (5, 2, 5, 4, 1),
+  (6, 2, 6, 5, 1),
+  (7, 2, 7, 6, 1),
+  (8, 2, 8, 7, 1),
+  (9, 2, 9, 8, 1),
+  (10, 2, 10, 9, 1),
+  (11, 2, 11, 10, 0),
+
+  -- ocnita - balti
+  (12, 1, 12, 0, 0),
+  (13, 1, 13, 1, 1),
+  (14, 1, 14, 2, 1),
+  (15, 1, 15, 3, 1),
+  (16, 1, 16, 4, 1),
+  (17, 1, 17, 5, 1),
+  (18, 1, 18, 6, 1),
+  (19, 1, 19, 7, 1),
+  (20, 1, 20, 8, 1),
+  (21, 1, 21, 9, 1),
+  (22, 1, 22, 10, 0),
+
+  -- balti - ribnita
+  (23, 3, 23, 0, 0),
+  (24, 3, 24, 1, 1),
+  (25, 3, 25, 2, 1),
+  (26, 3, 26, 3, 1),
+  (27, 3, 27, 4, 1),
+  (28, 3, 28, 5, 1),
+  (29, 3, 29, 6, 1),
+  (30, 3, 30, 7, 1),
+  (31, 3, 31, 8, 1),
+  (32, 3, 32, 9, 1),
+  (33, 3, 33, 10, 1),
+  (34, 3, 34, 11, 1),
+  (35, 3, 35, 12, 1),
+  (36, 3, 36, 13, 1),
+  (37, 3, 37, 14, 1),
+  (38, 3, 38, 15, 0),
+
+    -- ribnita - balti
+  (39, 4, 47, 0, 0),
+  (40, 4, 48, 1, 1),
+  (41, 4, 49, 2, 1),
+  (42, 4, 50, 3, 1),
+  (43, 4, 51, 4, 1),
+  (44, 4, 52, 5, 1),
+  (45, 4, 53, 6, 1),
+  (46, 4, 54, 7, 1),
+  (47, 4, 55, 8, 1),
+  (48, 4, 56, 9, 1),
+  (49, 4, 57, 10, 1),
+  (50, 4, 58, 11, 1),
+  (51, 4, 59, 12, 1),
+  (52, 4, 60, 13, 1),
+  (53, 4, 61, 14, 1),
+  (54, 4, 62, 15, 0)
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.app.train.TrainApplication.main(TrainApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'line_element' in 'field list'
+Location   : db/migration/V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql)
+Line       : 23
+Statement  : insert into
+  routestation
+  (id, route_id, line_element, station_index, departure_duration)
+values
+  -- (id,route,lineElement,index,waiting)
+  -- balti - ocnita
+  (1, 2, 1, 0, 0),
+  (2, 2, 2, 1, 1),
+  (3, 2, 3, 2, 1),
+  (4, 2, 4, 3, 1),
+  (5, 2, 5, 4, 1),
+  (6, 2, 6, 5, 1),
+  (7, 2, 7, 6, 1),
+  (8, 2, 8, 7, 1),
+  (9, 2, 9, 8, 1),
+  (10, 2, 10, 9, 1),
+  (11, 2, 11, 10, 0),
+
+  -- ocnita - balti
+  (12, 1, 12, 0, 0),
+  (13, 1, 13, 1, 1),
+  (14, 1, 14, 2, 1),
+  (15, 1, 15, 3, 1),
+  (16, 1, 16, 4, 1),
+  (17, 1, 17, 5, 1),
+  (18, 1, 18, 6, 1),
+  (19, 1, 19, 7, 1),
+  (20, 1, 20, 8, 1),
+  (21, 1, 21, 9, 1),
+  (22, 1, 22, 10, 0),
+
+  -- balti - ribnita
+  (23, 3, 23, 0, 0),
+  (24, 3, 24, 1, 1),
+  (25, 3, 25, 2, 1),
+  (26, 3, 26, 3, 1),
+  (27, 3, 27, 4, 1),
+  (28, 3, 28, 5, 1),
+  (29, 3, 29, 6, 1),
+  (30, 3, 30, 7, 1),
+  (31, 3, 31, 8, 1),
+  (32, 3, 32, 9, 1),
+  (33, 3, 33, 10, 1),
+  (34, 3, 34, 11, 1),
+  (35, 3, 35, 12, 1),
+  (36, 3, 36, 13, 1),
+  (37, 3, 37, 14, 1),
+  (38, 3, 38, 15, 0),
+
+    -- ribnita - balti
+  (39, 4, 47, 0, 0),
+  (40, 4, 48, 1, 1),
+  (41, 4, 49, 2, 1),
+  (42, 4, 50, 3, 1),
+  (43, 4, 51, 4, 1),
+  (44, 4, 52, 5, 1),
+  (45, 4, 53, 6, 1),
+  (46, 4, 54, 7, 1),
+  (47, 4, 55, 8, 1),
+  (48, 4, 56, 9, 1),
+  (49, 4, 57, 10, 1),
+  (50, 4, 58, 11, 1),
+  (51, 4, 59, 12, 1),
+  (52, 4, 60, 13, 1),
+  (53, 4, 61, 14, 1),
+  (54, 4, 62, 15, 0)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 13 common frames omitted
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'line_element' in 'field list'
+Location   : db/migration/V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql)
+Line       : 23
+Statement  : insert into
+  routestation
+  (id, route_id, line_element, station_index, departure_duration)
+values
+  -- (id,route,lineElement,index,waiting)
+  -- balti - ocnita
+  (1, 2, 1, 0, 0),
+  (2, 2, 2, 1, 1),
+  (3, 2, 3, 2, 1),
+  (4, 2, 4, 3, 1),
+  (5, 2, 5, 4, 1),
+  (6, 2, 6, 5, 1),
+  (7, 2, 7, 6, 1),
+  (8, 2, 8, 7, 1),
+  (9, 2, 9, 8, 1),
+  (10, 2, 10, 9, 1),
+  (11, 2, 11, 10, 0),
+
+  -- ocnita - balti
+  (12, 1, 12, 0, 0),
+  (13, 1, 13, 1, 1),
+  (14, 1, 14, 2, 1),
+  (15, 1, 15, 3, 1),
+  (16, 1, 16, 4, 1),
+  (17, 1, 17, 5, 1),
+  (18, 1, 18, 6, 1),
+  (19, 1, 19, 7, 1),
+  (20, 1, 20, 8, 1),
+  (21, 1, 21, 9, 1),
+  (22, 1, 22, 10, 0),
+
+  -- balti - ribnita
+  (23, 3, 23, 0, 0),
+  (24, 3, 24, 1, 1),
+  (25, 3, 25, 2, 1),
+  (26, 3, 26, 3, 1),
+  (27, 3, 27, 4, 1),
+  (28, 3, 28, 5, 1),
+  (29, 3, 29, 6, 1),
+  (30, 3, 30, 7, 1),
+  (31, 3, 31, 8, 1),
+  (32, 3, 32, 9, 1),
+  (33, 3, 33, 10, 1),
+  (34, 3, 34, 11, 1),
+  (35, 3, 35, 12, 1),
+  (36, 3, 36, 13, 1),
+  (37, 3, 37, 14, 1),
+  (38, 3, 38, 15, 0),
+
+    -- ribnita - balti
+  (39, 4, 47, 0, 0),
+  (40, 4, 48, 1, 1),
+  (41, 4, 49, 2, 1),
+  (42, 4, 50, 3, 1),
+  (43, 4, 51, 4, 1),
+  (44, 4, 52, 5, 1),
+  (45, 4, 53, 6, 1),
+  (46, 4, 54, 7, 1),
+  (47, 4, 55, 8, 1),
+  (48, 4, 56, 9, 1),
+  (49, 4, 57, 10, 1),
+  (50, 4, 58, 11, 1),
+  (51, 4, 59, 12, 1),
+  (52, 4, 60, 13, 1),
+  (53, 4, 61, 14, 1),
+  (54, 4, 62, 15, 0)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.database.mysql.MySQLNamedLockTemplate.execute(MySQLNamedLockTemplate.java:58)
+	at org.flywaydb.database.mysql.MySQLConnection.lock(MySQLConnection.java:150)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:145)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:202)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:205)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
+	at com.app.train.api.config.ServletConfig.lambda$flywayCleanMigrationStrategy$0(ServletConfig.java:22)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:62)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 20 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'line_element' in 'field list'
+Location   : db/migration/V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_11__INSERT_MOLDOVA_ROUTE.sql)
+Line       : 23
+Statement  : insert into
+  routestation
+  (id, route_id, line_element, station_index, departure_duration)
+values
+  -- (id,route,lineElement,index,waiting)
+  -- balti - ocnita
+  (1, 2, 1, 0, 0),
+  (2, 2, 2, 1, 1),
+  (3, 2, 3, 2, 1),
+  (4, 2, 4, 3, 1),
+  (5, 2, 5, 4, 1),
+  (6, 2, 6, 5, 1),
+  (7, 2, 7, 6, 1),
+  (8, 2, 8, 7, 1),
+  (9, 2, 9, 8, 1),
+  (10, 2, 10, 9, 1),
+  (11, 2, 11, 10, 0),
+
+  -- ocnita - balti
+  (12, 1, 12, 0, 0),
+  (13, 1, 13, 1, 1),
+  (14, 1, 14, 2, 1),
+  (15, 1, 15, 3, 1),
+  (16, 1, 16, 4, 1),
+  (17, 1, 17, 5, 1),
+  (18, 1, 18, 6, 1),
+  (19, 1, 19, 7, 1),
+  (20, 1, 20, 8, 1),
+  (21, 1, 21, 9, 1),
+  (22, 1, 22, 10, 0),
+
+  -- balti - ribnita
+  (23, 3, 23, 0, 0),
+  (24, 3, 24, 1, 1),
+  (25, 3, 25, 2, 1),
+  (26, 3, 26, 3, 1),
+  (27, 3, 27, 4, 1),
+  (28, 3, 28, 5, 1),
+  (29, 3, 29, 6, 1),
+  (30, 3, 30, 7, 1),
+  (31, 3, 31, 8, 1),
+  (32, 3, 32, 9, 1),
+  (33, 3, 33, 10, 1),
+  (34, 3, 34, 11, 1),
+  (35, 3, 35, 12, 1),
+  (36, 3, 36, 13, 1),
+  (37, 3, 37, 14, 1),
+  (38, 3, 38, 15, 0),
+
+    -- ribnita - balti
+  (39, 4, 47, 0, 0),
+  (40, 4, 48, 1, 1),
+  (41, 4, 49, 2, 1),
+  (42, 4, 50, 3, 1),
+  (43, 4, 51, 4, 1),
+  (44, 4, 52, 5, 1),
+  (45, 4, 53, 6, 1),
+  (46, 4, 54, 7, 1),
+  (47, 4, 55, 8, 1),
+  (48, 4, 56, 9, 1),
+  (49, 4, 57, 10, 1),
+  (50, 4, 58, 11, 1),
+  (51, 4, 59, 12, 1),
+  (52, 4, 60, 13, 1),
+  (53, 4, 61, 14, 1),
+  (54, 4, 62, 15, 0)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:133)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:65)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 37 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'line_element' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:89)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:206)
+	... 43 common frames omitted
+10-04 16:09:57.045 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-04 16:22:40.976 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-04 16:23:48.689 [0-exec-5] WARN | org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions:145 SQL Error: 1054, SQLState: 42S22
+10-04 16:23:48.693 [0-exec-5] ERROR| org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions:150 Unknown column 'rs1_0.line_element' in 'field list'
+10-04 16:23:48.705 [0-exec-5] ERROR| org.apache.juli.logging.DirectJDKLog.log:175 Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select rs1_0.id,rs1_0.departure_duration,rs1_0.line_element,rs1_0.route_id,rs1_0.station_index from routestation rs1_0 where rs1_0.station_index=? and rs1_0.route_id=?] [Unknown column 'rs1_0.line_element' in 'field list'] [n/a]; SQL [n/a]] with root cause
+java.sql.SQLSyntaxErrorException: Unknown column 'rs1_0.line_element' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:968)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:246)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:204)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:139)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:382)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:302)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:526)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:423)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:555)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:223)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy4/jdk.proxy4.$Proxy151.findByStationAndRoute(Unknown Source)
+	at com.app.train.service.impl.UtilityServiceImpl.calculateDistanceAndDuration(UtilityServiceImpl.java:28)
+	at com.app.train.api.controllers.RouteController.getAllRoutes(RouteController.java:37)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+10-04 16:42:50.499 [rtedMain] ERROR| org.flywaydb.core.internal.logging.slf4j.Slf4jLog.error:45 Migration of schema `trains` to version "2024.10.04.5 - CREATE TABLE ROUTE" failed! Please restore backups and roll back database and code!
+10-04 16:42:50.527 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_5__CREATE_TABLE_ROUTE.sql failed
+------------------------------------------------------
+SQL State  : 42000
+Error Code : 1072
+Message    : Key column 'lineElement' doesn't exist in table
+Location   : db/migration/V2024_10_04_5__CREATE_TABLE_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_5__CREATE_TABLE_ROUTE.sql)
+Line       : 6
+Statement  : CREATE TABLE RouteStation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    route_id INT,
+    line_Element INT,
+    station_index INT,
+    distance INT,
+    departure_duration INT,
+    FOREIGN KEY (lineElement) REFERENCES TrainLine_Element(id) ON DELETE CASCADE,
+    FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
+)
+
+10-04 16:42:50.608 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_5__CREATE_TABLE_ROUTE.sql failed
+------------------------------------------------------
+SQL State  : 42000
+Error Code : 1072
+Message    : Key column 'lineElement' doesn't exist in table
+Location   : db/migration/V2024_10_04_5__CREATE_TABLE_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_5__CREATE_TABLE_ROUTE.sql)
+Line       : 6
+Statement  : CREATE TABLE RouteStation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    route_id INT,
+    line_Element INT,
+    station_index INT,
+    distance INT,
+    departure_duration INT,
+    FOREIGN KEY (lineElement) REFERENCES TrainLine_Element(id) ON DELETE CASCADE,
+    FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
+)
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.app.train.TrainApplication.main(TrainApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_5__CREATE_TABLE_ROUTE.sql failed
+------------------------------------------------------
+SQL State  : 42000
+Error Code : 1072
+Message    : Key column 'lineElement' doesn't exist in table
+Location   : db/migration/V2024_10_04_5__CREATE_TABLE_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_5__CREATE_TABLE_ROUTE.sql)
+Line       : 6
+Statement  : CREATE TABLE RouteStation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    route_id INT,
+    line_Element INT,
+    station_index INT,
+    distance INT,
+    departure_duration INT,
+    FOREIGN KEY (lineElement) REFERENCES TrainLine_Element(id) ON DELETE CASCADE,
+    FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
+)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 13 common frames omitted
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V2024_10_04_5__CREATE_TABLE_ROUTE.sql failed
+------------------------------------------------------
+SQL State  : 42000
+Error Code : 1072
+Message    : Key column 'lineElement' doesn't exist in table
+Location   : db/migration/V2024_10_04_5__CREATE_TABLE_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_5__CREATE_TABLE_ROUTE.sql)
+Line       : 6
+Statement  : CREATE TABLE RouteStation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    route_id INT,
+    line_Element INT,
+    station_index INT,
+    distance INT,
+    departure_duration INT,
+    FOREIGN KEY (lineElement) REFERENCES TrainLine_Element(id) ON DELETE CASCADE,
+    FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
+)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.database.mysql.MySQLNamedLockTemplate.execute(MySQLNamedLockTemplate.java:58)
+	at org.flywaydb.database.mysql.MySQLConnection.lock(MySQLConnection.java:150)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:145)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:202)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:205)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
+	at com.app.train.api.config.ServletConfig.lambda$flywayCleanMigrationStrategy$0(ServletConfig.java:22)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:62)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 20 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V2024_10_04_5__CREATE_TABLE_ROUTE.sql failed
+------------------------------------------------------
+SQL State  : 42000
+Error Code : 1072
+Message    : Key column 'lineElement' doesn't exist in table
+Location   : db/migration/V2024_10_04_5__CREATE_TABLE_ROUTE.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_5__CREATE_TABLE_ROUTE.sql)
+Line       : 6
+Statement  : CREATE TABLE RouteStation (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    route_id INT,
+    line_Element INT,
+    station_index INT,
+    distance INT,
+    departure_duration INT,
+    FOREIGN KEY (lineElement) REFERENCES TrainLine_Element(id) ON DELETE CASCADE,
+    FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
+)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:133)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:65)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 37 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Key column 'lineElement' doesn't exist in table
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:89)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:206)
+	... 43 common frames omitted
+10-04 16:43:40.155 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-04 16:44:00.401 [0-exec-1] ERROR| org.apache.juli.logging.DirectJDKLog.log:175 Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Start station not found for the given route] with root cause
+java.lang.IllegalArgumentException: Start station not found for the given route
+	at com.app.train.service.impl.UtilityServiceImpl.lambda$calculateDistanceAndDuration$0(UtilityServiceImpl.java:29)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at com.app.train.service.impl.UtilityServiceImpl.calculateDistanceAndDuration(UtilityServiceImpl.java:29)
+	at com.app.train.api.controllers.RouteController.getAllRoutes(RouteController.java:37)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+10-04 16:52:16.005 [rtedMain] ERROR| org.flywaydb.core.internal.logging.slf4j.Slf4jLog.error:45 Migration of schema `trains` to version "2024.10.04.10 - INSERT MOLDOVA LINES" failed! Please restore backups and roll back database and code!
+10-04 16:52:16.055 [rtedMain] WARN | o.springframework.context.support.AbstractApplicationContext.refresh:633 Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'stationId' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, trainLine, stationId, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+10-04 16:52:16.166 [rtedMain] ERROR| org.springframework.boot.SpringApplication.reportFailure:859 Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'stationId' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, trainLine, stationId, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.app.train.TrainApplication.main(TrainApplication.java:14)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'stationId' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, trainLine, stationId, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 13 common frames omitted
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'stationId' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, trainLine, stationId, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.database.mysql.MySQLNamedLockTemplate.execute(MySQLNamedLockTemplate.java:58)
+	at org.flywaydb.database.mysql.MySQLConnection.lock(MySQLConnection.java:150)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:145)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:202)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:205)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:147)
+	at com.app.train.api.config.ServletConfig.lambda$flywayCleanMigrationStrategy$0(ServletConfig.java:22)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:62)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 20 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V2024_10_04_10__INSERT_MOLDOVA_LINES.sql failed
+---------------------------------------------------------
+SQL State  : 42S22
+Error Code : 1054
+Message    : Unknown column 'stationId' in 'field list'
+Location   : db/migration/V2024_10_04_10__INSERT_MOLDOVA_LINES.sql (D:\cplus\probleme_mark\a-TRAIN\impr\train\target\classes\db\migration\V2024_10_04_10__INSERT_MOLDOVA_LINES.sql)
+Line       : 11
+Statement  : insert into
+  trainline_element
+  (id, trainLine, stationId, km)
+values
+  -- BALTI-OCNITA
+  (1, 1, 33, 0),
+  (2, 1, 34, 10),
+  (3, 1, 35, 21),
+  (4, 1, 36, 31),
+  (5, 1, 37, 44),
+  (6, 1, 38, 53),
+  (7, 1, 39, 63),
+  (8, 1, 40, 69),
+  (9, 1, 41, 73),
+  (10, 1, 42, 80),
+  (11, 1, 43, 91),
+
+  -- OCNITA-BALTI
+  (12, 2, 43, 0),
+  (13, 2, 42, 11),
+  (14, 2, 41, 18),
+  (15, 2, 40, 22),
+  (16, 2, 39, 28),
+  (17, 2, 38, 38),
+  (18, 2, 37, 47),
+  (19, 2, 36, 60),
+  (20, 2, 35, 70),
+  (21, 2, 34, 80),
+  (22, 2, 33, 91),
+
+  -- BALTI-KOLBASNA
+  (23, 3, 33, 0),
+  (24, 3, 48, 6),
+  (25, 3, 49, 11),
+  (26, 3, 50, 17),
+  (27, 3, 51, 22),
+  (28, 3, 52, 27),
+  (29, 3, 53, 32),
+  (30, 3, 54, 36),
+  (31, 3, 55, 41),
+  (32, 3, 56, 49),
+  (33, 3, 57, 51),
+  (34, 3, 58, 58),
+  (35, 3, 59, 74),
+  (36, 3, 60, 86),
+  (37, 3, 61, 103),
+  (38, 3, 62, 122),
+  (39, 3, 63, 133),
+  (40, 3, 64, 137),
+  (41, 3, 65, 143),
+  (42, 3, 66, 149),
+
+ -- KOLBASNA-BALTI
+  (43, 4, 66, 0),
+  (44, 4, 65, 6),
+  (45, 4, 64, 12),
+  (46, 4, 63, 16),
+  (47, 4, 62, 27),
+  (48, 4, 61, 46),
+  (49, 4, 60, 63),
+  (50, 4, 59, 75),
+  (51, 4, 58, 91),
+  (52, 4, 57, 98),
+  (53, 4, 56, 100),
+  (54, 4, 55, 108),
+  (55, 4, 54, 113),
+  (56, 4, 53, 117),
+  (57, 4, 52, 122),
+  (58, 4, 51, 127),
+  (59, 4, 50, 132),
+  (60, 4, 49, 138),
+  (61, 4, 48, 143),
+  (62, 4, 33, 149)
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:133)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:65)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 37 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'stationId' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:770)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:653)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:89)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:206)
+	... 43 common frames omitted
+10-04 16:53:43.743 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-04 16:53:52.835 [0-exec-1] WARN | org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions:145 SQL Error: 1054, SQLState: 42S22
+10-04 16:53:52.840 [0-exec-1] ERROR| org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions:150 Unknown column 'tle1_0.train_line' in 'field list'
+10-04 16:53:52.856 [0-exec-1] ERROR| org.apache.juli.logging.DirectJDKLog.log:175 Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.InvalidDataAccessResourceUsageException: JDBC exception executing SQL [select tle1_0.id,tle1_0.km,tle1_0.station,s1_0.id,s1_0.country_code,s1_0.station_lat,s1_0.station_long,s1_0.station_name,tle1_0.train_line,tl1_0.id,tl1_0.name from trainline_element tle1_0 join station s1_0 on s1_0.id=tle1_0.station join trainline tl1_0 on tl1_0.id=tle1_0.train_line where tle1_0.id=?] [Unknown column 'tle1_0.train_line' in 'field list'] [n/a]; SQL [n/a]] with root cause
+java.sql.SQLSyntaxErrorException: Unknown column 'tle1_0.train_line' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:968)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:246)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:189)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:145)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:117)
+	at org.hibernate.loader.ast.internal.SingleIdEntityLoaderStandardImpl.load(SingleIdEntityLoaderStandardImpl.java:75)
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:3740)
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:3729)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:604)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromCacheOrDatasource(DefaultLoadEventListener.java:590)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:560)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:544)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:207)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadWithRegularProxy(DefaultLoadEventListener.java:290)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:242)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:111)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:68)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1225)
+	at org.hibernate.internal.SessionImpl.internalLoad(SessionImpl.java:1071)
+	at org.hibernate.sql.results.graph.entity.internal.EntitySelectFetchInitializer.initializeInstance(EntitySelectFetchInitializer.java:215)
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:73)
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:113)
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:87)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:205)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:139)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:382)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:302)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:526)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:423)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:555)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:223)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy4/jdk.proxy4.$Proxy151.findByStationAndRoute(Unknown Source)
+	at com.app.train.service.impl.UtilityServiceImpl.calculateDistanceAndDuration(UtilityServiceImpl.java:28)
+	at com.app.train.api.controllers.RouteController.getAllRoutes(RouteController.java:37)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+10-04 16:55:05.496 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-04 16:55:10.143 [0-exec-1] WARN | org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions:145 SQL Error: 0, SQLState: 22018
+10-04 16:55:10.146 [0-exec-1] ERROR| org.hibernate.engine.jdbc.spi.SqlExceptionHelper.logExceptions:150 Unsupported conversion from LONG to java.sql.Time
+10-04 16:55:10.159 [0-exec-1] ERROR| org.apache.juli.logging.DirectJDKLog.log:175 Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: Could not extract column [2] from JDBC ResultSet [Unsupported conversion from LONG to java.sql.Time] [n/a]; SQL [n/a]] with root cause
+com.mysql.cj.exceptions.DataConversionException: Unsupported conversion from LONG to java.sql.Time
+	at com.mysql.cj.result.DefaultValueFactory.unsupported(DefaultValueFactory.java:70)
+	at com.mysql.cj.result.DefaultValueFactory.createFromLong(DefaultValueFactory.java:95)
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeInt4(MysqlTextValueDecoder.java:124)
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:108)
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:244)
+	at com.mysql.cj.protocol.a.result.ByteArrayRow.getValue(ByteArrayRow.java:91)
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getTime(ResultSetImpl.java:917)
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getTime(HikariProxyResultSet.java)
+	at org.hibernate.type.descriptor.jdbc.TimeJdbcType$2.doExtract(TimeJdbcType.java:111)
+	at org.hibernate.type.descriptor.jdbc.BasicExtractor.extract(BasicExtractor.java:44)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.getCurrentRowValue(JdbcValuesResultSetImpl.java:379)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.getJdbcValue(RowProcessingStateStandardImpl.java:120)
+	at org.hibernate.sql.results.graph.basic.BasicResultAssembler.extractRawValue(BasicResultAssembler.java:52)
+	at org.hibernate.sql.results.graph.basic.BasicResultAssembler.assemble(BasicResultAssembler.java:59)
+	at org.hibernate.sql.results.graph.DomainResultAssembler.assemble(DomainResultAssembler.java:35)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.extractConcreteTypeStateValues(AbstractEntityInitializer.java:1038)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntityInstance(AbstractEntityInitializer.java:795)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeEntity(AbstractEntityInitializer.java:770)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.initializeInstance(AbstractEntityInitializer.java:762)
+	at org.hibernate.sql.results.internal.InitializersList.initializeInstance(InitializersList.java:73)
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:113)
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:87)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:205)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:139)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:382)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:302)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:526)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:423)
+	at org.hibernate.query.spi.AbstractSelectionQuery.getSingleResult(AbstractSelectionQuery.java:555)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$SingleEntityExecution.doExecute(JpaQueryExecution.java:223)
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:152)
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:140)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:169)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:136)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy4/jdk.proxy4.$Proxy151.findByStationAndRoute(Unknown Source)
+	at com.app.train.service.impl.UtilityServiceImpl.calculateDistanceAndDuration(UtilityServiceImpl.java:28)
+	at com.app.train.api.controllers.RouteController.getAllRoutes(RouteController.java:37)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+10-04 16:58:02.942 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning

@@ -44,8 +44,8 @@ public class RouteServiceImpl {
 
         Map<Integer, List<SimpleRaptor.RRouteStop>> routeMap = new HashMap<>();
         for (RouteStation routeStation : routeStations) {
-            routeMap.computeIfAbsent(routeStation.getRoute().getId(), k -> new ArrayList<>())
-                    .add(routeStopsMap.get(routeStation.getStation().getId()));
+            routeMap.computeIfAbsent(routeStation.getRoute().getId(), k -> new ArrayList<>());
+//                    .add(routeStopsMap.get(routeStation.getStation().getId()));
         }
 
         List<SimpleRaptor.RRoute> allRoutes = routeMap.entrySet().stream()
@@ -85,10 +85,10 @@ public class RouteServiceImpl {
     private Map<Station, List<FastestRaptor.RRouteStop>> initializeStationRouteMap(List<RouteStation> routeStations) {
         Map<Station, List<FastestRaptor.RRouteStop>> stationRouteMap = new HashMap<>();
 
-        for (RouteStation rs : routeStations) {
-            FastestRaptor.RRouteStop stop = new FastestRaptor.RRouteStop(rs.getStation(), rs.getRoute(), rs.getStationIndex(), rs.getDistance(), rs.getDuration());
-            stationRouteMap.computeIfAbsent(rs.getStation(), k -> new ArrayList<>()).add(stop);
-        }
+//        for (RouteStation rs : routeStations) {
+//            FastestRaptor.RRouteStop stop = new FastestRaptor.RRouteStop(rs.getStation(), rs.getRoute(), rs.getStationIndex(), rs.getDistance(), rs.getDuration());
+//            stationRouteMap.computeIfAbsent(rs.getStation(), k -> new ArrayList<>()).add(stop);
+//        }
 
         return stationRouteMap;
     }
