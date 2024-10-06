@@ -25,9 +25,9 @@ public class UtilityServiceImpl implements UtilityService {
     public UtilityResult calculateDistanceAndDuration(TravelResult travelResult) {
         Route route = travelResult.getTravel().getRoute();
 
-        RouteStation startStation = routeStationRepository.findByStationAndRoute(travelResult.getStartId(), route)
+        RouteStation startStation = routeStationRepository.findByIndexAndRoute(route, travelResult.getStartId())
                 .orElseThrow(() -> new IllegalArgumentException("Start station not found for the given route"));
-        RouteStation endStation = routeStationRepository.findByStationAndRoute(travelResult.getEndId(), route)
+        RouteStation endStation = routeStationRepository.findByIndexAndRoute(route, travelResult.getEndId())
                 .orElseThrow(() -> new IllegalArgumentException("End station not found for the given route"));
 
         log.info("Start Station: {} ; End Station: {}", startStation, endStation);

@@ -89,37 +89,37 @@ values
 
 
 -- OCNITA-BALTI TEST TRAVEL
-INSERT
-INTO
+insert
+into
   travel
-  (id, route_id)
-VALUES
-  (1, 1);
+  (id, route_id,start_date_time)
+values
+  (1, 1,NOW());
 
 
 -- BALTI-OCNITA TEST TRAVEL
-INSERT
-INTO
+insert
+into
   travel
-  (id, route_id)
-VALUES
-  (2, 2);
+  (id, route_id,start_date_time)
+values
+  (2, 2,NOW());
 
 
 
 -- BALTI-RIBNITA TEST TRAVEL
-INSERT
-INTO
+insert
+into
   travel
-  (id, route_id)
-VALUES
-  (3, 3);
+  (id, route_id,start_date_time)
+values
+  (3, 3,NOW());
 
   -- RIBNITA-BALTI TEST TRAVEL
-INSERT
-INTO
+insert
+into
   travel
-  (id, route_id)
-VALUES
-  (4, 4);
+  (id, route_id,start_date_time)
+values
+  (4, 4,NOW());
 

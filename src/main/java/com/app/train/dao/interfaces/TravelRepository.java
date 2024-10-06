@@ -10,8 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface TravelRepository extends JpaRepository<Travel, Integer> {
-    @Query("select t from Travel t where t.routeId = ?1 and t.startDateTime = ?2")
+    @Query("select t from Travel t where t.route.id = ?1 and t.startDateTime >= ?2")
     Optional<Travel> findByDateAndRoute(Integer routeId, LocalDateTime startDateTime);
-
 
 }

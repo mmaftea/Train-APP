@@ -41,7 +41,9 @@ public class RaptorEntityMapper {
 
             if (nextStationId != -1) {
                 int routeId = routeStation.getRoute().getId();
-                var mock = createMockTravel(routeStation, currentStationId, nextStationId);
+                var start = routeStationRepository.getIndexByStation(routeId, currentStationId).orElse(null);
+                var end = routeStationRepository.getIndexByStation(routeId, nextStationId).orElse(null);
+                var mock = createMockTravel(routeStation, start, end);
                 long duration = utilityService.calculateDistanceAndDuration(mock).getMinutes();
 
                 Stop stop = stopsMap.get(currentStationId);
