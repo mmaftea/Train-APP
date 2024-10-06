@@ -23,22 +23,12 @@ public class EmailController {
     void sendEmail(@RequestParam String reciver,@RequestParam String message) {
         emailService.sendSimpleEmail(reciver, message);
     }
+
     @PostMapping(value = "/sendFile", consumes = "application/json")
     void sendEmailWithAttachment(@RequestBody EmailTicketInformation info){
 
-        Map<String, String> placeholders = new HashMap<>();
+        Map<String, String> placeholders = getStringStringMap(info);
 
-        placeholders.put("ticket_id", "" + info.ticketID());
-        placeholders.put("name", info.name());
-        placeholders.put("surname", info.surname());
-        placeholders.put("seat", "" + info.seat());
-        placeholders.put("vagon", "" + info.vagon());
-        placeholders.put("boarding_station", info.boardStation());
-        placeholders.put("boarding_station_date_time", "" + info.boardDateTime());
-        placeholders.put("exit_station", info.endStation());
-        placeholders.put("exit_station_date_time", info.endStation());
-
-        // CREATE A PDF FILE
         String outputPdfPath = "src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/ticketsPdf/" + info.ticketID() + ".pdf";
         String templatePath = "src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/testTemplate.html";
 
@@ -52,6 +42,21 @@ public class EmailController {
         // SENDING THE FILE
         emailService.sendMailWithAttachment(info.travelerEmail(),"","TICKETS",outputPdfPath);
         //emailService.sendMailWithAttachment("1saganeanmarius@gmail.com","message body","test 01","src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/ticketsPDF/Business Class Boarding Pass Ticket.pdf");
+    }
+
+    private static Map<String, String> getStringStringMap(EmailTicketInformation info) {
+        Map<String, String> placeholders = new HashMap<>();
+
+        placeholders.put("ticket_id", "" + info.ticketID());
+        placeholders.put("name", info.name());
+        placeholders.put("surname", info.surname());
+        placeholders.put("seat", "" + info.seat());
+        placeholders.put("vagon", "" + info.vagon());
+        placeholders.put("boarding_station", info.boardStation());
+        placeholders.put("boarding_station_date_time", "" + info.boardDateTime());
+        placeholders.put("exit_station", info.endStation());
+        placeholders.put("exit_station_date_time", info.endStation());
+        return placeholders;
     }
 
 }

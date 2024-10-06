@@ -152,6 +152,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 
@@ -201,9 +202,9 @@
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>6.5.7</version>
 				<configuration>
-					<url>jdbc:mysql://127.0.0.1:3306/trainapp</url>
-					<user>root</user>
-					<password>marius</password>
+					<url>jdbc:mysql://127.0.0.1:3306/trains</url>
+					<user>iuliana</user>
+					<password>P1204sql!2023</password>
 				</configuration>
 			</plugin>
 
