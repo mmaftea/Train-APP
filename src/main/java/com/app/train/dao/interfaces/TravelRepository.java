@@ -5,12 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Repository
 public interface TravelRepository extends JpaRepository<Travel, Integer> {
-    @Query("select t from Travel t where t.route.id = ?1 and t.startDateTime >= ?2")
-    Optional<Travel> findByDateAndRoute(Integer routeId, LocalDateTime startDateTime);
-
+    @Query("select t from Travel t where t.route.id = ?1 and FUNCTION('DATE', t.startDateTime) = ?2")
+    Optional<Travel> findByDateAndRoute(Integer routeId, LocalDate startDate);
 }

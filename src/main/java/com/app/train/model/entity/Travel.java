@@ -1,5 +1,6 @@
 package com.app.train.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -37,6 +38,7 @@ public class Travel implements HasId<Integer> {
     @Column(name = "start_date_time")
     private LocalDateTime startDateTime;
 
+    @JsonIgnore
     public @NotNull Integer getRouteId() {
         return route.getId();
     }
