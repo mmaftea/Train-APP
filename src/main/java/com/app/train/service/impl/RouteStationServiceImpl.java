@@ -12,9 +12,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -23,6 +26,7 @@ public class RouteStationServiceImpl {
     private final RouteStationRepository repository;
     private final RouteRepository routeRepository;
     private final UtilityService utilityService;
+    private Map<Travel, Integer> prevStartOnTravel = new HashMap<>();
 
     public Station getStationFromIndex(int index, int routeId) {
         Route route = routeRepository.findById(routeId).orElseThrow();
@@ -33,8 +37,8 @@ public class RouteStationServiceImpl {
         if (list.size() == 1) {
             Result result = getResult(list, 0);
             return Collections.singletonList(TicketMetaData.builder()
-                    .departureTime(result.travel().getStartDateTime())
-                    .arrivalTime(result.travel().getStartDateTime().plusMinutes(result.minutes()))
+                    .departureTime(result.toStartTime())
+                    .arrivalTime(result.toStartTime().plusMinutes(result.minutes()))
                     .startStation(repository.findByIndexAndRoute(result.travel().getRoute(),
                             result.travelResult().getStartId()).orElseThrow().getLineElement().getStation())
                     .stopStation(repository.findByIndexAndRoute(result.travel().getRoute(),
@@ -45,15 +49,15 @@ public class RouteStationServiceImpl {
             for (int i = 0; i < list.size(); i++) {
                 Result startPoint = getResult(list, i);
                 ticketMetaData.add(TicketMetaData.builder()
-                        .departureTime(startPoint.travel().getStartDateTime())
-                        .arrivalTime(startPoint.travel().getStartDateTime().plusMinutes(startPoint.minutes()))
+                        .departureTime(startPoint.toStartTime())
+                        .arrivalTime(startPoint.toStartTime().plusMinutes(startPoint.minutes()))
                         .startStation(repository.findByIndexAndRoute(startPoint.travel().getRoute(),
                                 startPoint.travelResult().getStartId()).orElseThrow().getLineElement().getStation())
                         .stopStation(repository.findByIndexAndRoute(startPoint.travel().getRoute(),
                                 startPoint.travelResult().getEndId()).orElseThrow().getLineElement().getStation())
                         .build());
             }
-            log.info("{}",ticketMetaData);
+            log.info("{}", ticketMetaData);
             return ticketMetaData;
 
         }
@@ -62,10 +66,18 @@ public class RouteStationServiceImpl {
     private Result getResult(List<TravelResult> list, int index) {
         TravelResult travelResult = list.get(index);
         Travel travel = travelResult.getTravel();
+
+        TravelResult prevResult = TravelResult.builder()
+                .travel(travel)
+                .startId(prevStartOnTravel.getOrDefault(travel, 0))
+                .endId(travelResult.getStartId())
+                .build();
+
+        var toStartTime = travel.getStartDateTime().plusMinutes(utilityService.calculateDistanceAndDuration(prevResult).getMinutes());
         long minutes = utilityService.calculateDistanceAndDuration(travelResult).getMinutes();
-        return new Result(travelResult, travel, minutes);
+        return new Result(travelResult, travel, minutes, toStartTime);
     }
 
-    private record Result(TravelResult travelResult, Travel travel, long minutes) {
+    private record Result(TravelResult travelResult, Travel travel, long minutes, LocalDateTime toStartTime) {
     }
 }
