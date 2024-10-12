@@ -4,16 +4,11 @@ import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
-import org.springframework.core.io.FileSystemResource;
-import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.util.Properties;
 
 import java.io.File;
 @Slf4j
@@ -45,7 +40,7 @@ public class EmailSenderService {
     }
     public void sendMailWithAttachment(String toEmail, String body, String subject, String attachment) {
         try {
-            log.info("send a simple mail without attachment file");
+            log.info("send a simple mail with attachment file");
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
             mimeMessageHelper.setFrom("trenmoldavskii@gmail.com");
@@ -56,7 +51,7 @@ public class EmailSenderService {
             FileSystemResource fileSystemResource = new FileSystemResource(new File(attachment));
             mimeMessageHelper.addAttachment(fileSystemResource.getFilename(), fileSystemResource);
             mailSender.send(mimeMessage);
-            System.out.printf("Mail with attachment sent successfully..");
+            log.info("Mail with attachment sent successfully..");
             }catch (Exception exception) {
                 log.error("error while sending the mail");
                 throw new RuntimeException("error while sending the mail : "

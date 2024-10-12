@@ -28,5 +28,4 @@ public class TravelServiceImpl implements TravelService {
         return travelRepository.save(apartment);
     }
 
-
 }
