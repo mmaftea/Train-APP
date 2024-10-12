@@ -29,14 +29,20 @@ public class EmailController {
         Map<String, String> placeholders = new HashMap<>();
 
         placeholders.put("ticket_id", "" + info.ticketID());
-        placeholders.put("name", info.name());
-        placeholders.put("surname", info.surname());
-        placeholders.put("seat", "" + info.seat());
-        placeholders.put("vagon", "" + info.vagon());
-        placeholders.put("boarding_station", info.boardStation());
-        placeholders.put("boarding_station_date_time", "" + info.boardDateTime());
-        placeholders.put("exit_station", info.endStation());
-        placeholders.put("exit_station_date_time", info.endStation());
+        placeholders.put("passsager_name", info.surname() + info.name());
+        placeholders.put("travel_id","" + info.travel_id());
+        placeholders.put("train_id", "" + info.train_id());
+        placeholders.put("seat_number", "" + info.seat());
+        placeholders.put("vagon_number", "" + info.vagon());
+        placeholders.put("start_city", info.boardStation());
+        placeholders.put("end_city", "" + info.boardDateTime());
+        placeholders.put("boarding date time", info.endStation());
+        placeholders.put("arrival date time", "" + info.endDateTime());
+        placeholders.put("ticket_class", info.ticket_class());
+        placeholders.put("distance", info.distance() + " km");
+        placeholders.put("person_type", info.person_type());
+        placeholders.put("price", "" + info.price());
+
 
         // CREATE A PDF FILE
         String outputPdfPath = "src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/ticketsPdf/" + info.ticketID() + ".pdf";
@@ -53,7 +59,6 @@ public class EmailController {
         emailService.sendMailWithAttachment(info.travelerEmail(),"","TICKETS",outputPdfPath);
         //emailService.sendMailWithAttachment("1saganeanmarius@gmail.com","message body","test 01","src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/ticketsPDF/Business Class Boarding Pass Ticket.pdf");
     }
-
 }
 
 

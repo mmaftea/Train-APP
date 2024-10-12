@@ -64,6 +64,7 @@ public class EmailSenderService {
             }
 
     }
-
+    // TODO
+    // SEND CONFIRMATION CODE
 
 }

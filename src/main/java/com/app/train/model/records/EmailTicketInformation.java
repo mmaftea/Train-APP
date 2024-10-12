@@ -12,6 +12,12 @@ public record EmailTicketInformation(
         int ticketID,
         int seat,
         int vagon,
+        int distance,
+        String person_type,
+        int train_id,
+        int travel_id,
         String name,
+        String ticket_class,
+        float price,
         String surname
 ) { }

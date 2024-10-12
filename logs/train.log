@@ -1,14 +1,224 @@
-10-04 13:49:40.398 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-10-04 13:51:47.166 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-10-04 13:53:16.110 [0-exec-2] ERROR| com.app.train.api.controllers.EmailController.sendEmail:42 \ticketTemplates\testTemplate.html
-10-04 13:53:18.466 [0-exec-3] ERROR| com.app.train.api.controllers.EmailController.sendEmail:42 \ticketTemplates\testTemplate.html
-10-04 15:44:07.011 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-10-04 17:18:34.374 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-10-04 17:22:01.113 [0-exec-1] WARN | org.springframework.core.log.CompositeLog.warn:107 Failed to evaluate Jackson deserialization for type [[simple type, class com.app.train.model.records.EmailTicketInformation]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot deserialize Class org.springframework.format.annotation.DateTimeFormat (of type annotation) as a Bean
-10-04 17:22:01.129 [0-exec-1] WARN | org.springframework.core.log.CompositeLog.warn:107 Failed to evaluate Jackson deserialization for type [[simple type, class com.app.train.model.records.EmailTicketInformation]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot deserialize Class org.springframework.format.annotation.DateTimeFormat (of type annotation) as a Bean
-10-04 17:22:01.129 [0-exec-1] WARN | o.s.web.servlet.handler.AbstractHandlerExceptionResolver.logException:247 Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/json;charset=UTF-8' is not supported]
-10-04 17:27:16.372 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-10-04 17:27:20.044 [0-exec-2] WARN | org.springframework.core.log.CompositeLog.warn:107 Failed to evaluate Jackson deserialization for type [[simple type, class com.app.train.model.records.EmailTicketInformation]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot deserialize Class org.springframework.format.annotation.DateTimeFormat (of type annotation) as a Bean
-10-04 17:27:20.048 [0-exec-2] WARN | org.springframework.core.log.CompositeLog.warn:107 Failed to evaluate Jackson deserialization for type [[simple type, class com.app.train.model.records.EmailTicketInformation]]: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Cannot deserialize Class org.springframework.format.annotation.DateTimeFormat (of type annotation) as a Bean
-10-04 17:27:20.053 [0-exec-2] WARN | o.s.web.servlet.handler.AbstractHandlerExceptionResolver.logException:247 Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content-Type 'application/json;charset=UTF-8' is not supported]
-10-04 17:30:26.161 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 14:44:29.644 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 14:45:38.637 [0-exec-2] ERROR| c.i.s.css.parse.syntax.CssParserStateController.isCurrentRuleSupported:496 The rule @-webkit-keyframes is unsupported. All selectors in this rule will be ignored.
+10-07 14:45:38.638 [0-exec-2] ERROR| c.i.s.css.parse.syntax.CssParserStateController.isCurrentRuleSupported:496 The rule @keyframes is unsupported. All selectors in this rule will be ignored.
+10-07 14:45:38.730 [0-exec-2] WARN | c.i.s.css.resolve.shorthand.impl.BackgroundShorthandResolver.putPropertyBasedOnType:348 Was not able to define one of the background CSS shorthand properties: radial-gradient(ellipse farthest-corner at center top,#ececec,#999)
+10-07 14:45:38.763 [0-exec-2] WARN | com.itextpdf.svg.converter.SvgConverter.extractWidthAndHeight:956 Top Svg tag has no defined width attribute and viewbox width is not present, so browser default of 300px is used
+10-07 14:45:38.763 [0-exec-2] WARN | com.itextpdf.svg.converter.SvgConverter.extractWidthAndHeight:969 Top Svg tag has no defined height attribute and viewbox height is not present, so browser default of 150px is used
+10-07 14:45:38.815 [0-exec-2] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyLeftProperty:144 Css property left in percents is not supported
+10-07 14:45:38.816 [0-exec-2] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyTopProperty:188 Css property top in percents is not supported
+10-07 14:45:38.902 [0-exec-2] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 14:46:35.424 [0-exec-3] WARN | o.s.web.servlet.handler.AbstractHandlerExceptionResolver.logException:247 Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Invalid numeric value: Leading zeroes not allowed]
+10-07 14:46:42.687 [0-exec-5] ERROR| c.i.s.css.parse.syntax.CssParserStateController.isCurrentRuleSupported:496 The rule @-webkit-keyframes is unsupported. All selectors in this rule will be ignored.
+10-07 14:46:42.688 [0-exec-5] ERROR| c.i.s.css.parse.syntax.CssParserStateController.isCurrentRuleSupported:496 The rule @keyframes is unsupported. All selectors in this rule will be ignored.
+10-07 14:46:42.693 [0-exec-5] WARN | c.i.s.css.resolve.shorthand.impl.BackgroundShorthandResolver.putPropertyBasedOnType:348 Was not able to define one of the background CSS shorthand properties: radial-gradient(ellipse farthest-corner at center top,#ececec,#999)
+10-07 14:46:42.695 [0-exec-5] WARN | com.itextpdf.svg.converter.SvgConverter.extractWidthAndHeight:956 Top Svg tag has no defined width attribute and viewbox width is not present, so browser default of 300px is used
+10-07 14:46:42.695 [0-exec-5] WARN | com.itextpdf.svg.converter.SvgConverter.extractWidthAndHeight:969 Top Svg tag has no defined height attribute and viewbox height is not present, so browser default of 150px is used
+10-07 14:46:42.710 [0-exec-5] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyLeftProperty:144 Css property left in percents is not supported
+10-07 14:46:42.710 [0-exec-5] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyTopProperty:188 Css property top in percents is not supported
+10-07 14:46:42.721 [0-exec-5] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 14:47:51.401 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 14:47:57.166 [0-exec-1] WARN | com.itextpdf.svg.converter.SvgConverter.extractWidthAndHeight:956 Top Svg tag has no defined width attribute and viewbox width is not present, so browser default of 300px is used
+10-07 14:47:57.167 [0-exec-1] WARN | com.itextpdf.svg.converter.SvgConverter.extractWidthAndHeight:969 Top Svg tag has no defined height attribute and viewbox height is not present, so browser default of 150px is used
+10-07 14:50:29.879 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 14:50:36.279 [0-exec-1] ERROR| c.i.s.css.parse.syntax.CssParserStateController.isCurrentRuleSupported:496 The rule @-webkit-keyframes is unsupported. All selectors in this rule will be ignored.
+10-07 14:50:36.279 [0-exec-1] ERROR| c.i.s.css.parse.syntax.CssParserStateController.isCurrentRuleSupported:496 The rule @keyframes is unsupported. All selectors in this rule will be ignored.
+10-07 14:50:36.376 [0-exec-1] WARN | c.i.s.css.resolve.shorthand.impl.BackgroundShorthandResolver.putPropertyBasedOnType:348 Was not able to define one of the background CSS shorthand properties: radial-gradient(ellipse farthest-corner at center top,#ececec,#999)
+10-07 14:50:36.439 [0-exec-1] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyLeftProperty:144 Css property left in percents is not supported
+10-07 14:50:36.440 [0-exec-1] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyTopProperty:188 Css property top in percents is not supported
+10-07 14:50:36.579 [0-exec-1] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 14:52:54.697 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 14:53:00.396 [0-exec-1] ERROR| c.i.s.css.parse.syntax.CssParserStateController.isCurrentRuleSupported:496 The rule @keyframes is unsupported. All selectors in this rule will be ignored.
+10-07 14:53:00.482 [0-exec-1] WARN | c.i.s.css.resolve.shorthand.impl.BackgroundShorthandResolver.putPropertyBasedOnType:348 Was not able to define one of the background CSS shorthand properties: radial-gradient(ellipse farthest-corner at center top,#ececec,#999)
+10-07 14:53:00.567 [0-exec-1] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyLeftProperty:144 Css property left in percents is not supported
+10-07 14:53:00.567 [0-exec-1] ERROR| com.itextpdf.html2pdf.css.apply.util.PositionApplierUtil.applyTopProperty:188 Css property top in percents is not supported
+10-07 14:53:00.673 [0-exec-1] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 14:56:03.219 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 14:56:08.286 [0-exec-2] WARN | c.i.s.css.resolve.shorthand.impl.BackgroundShorthandResolver.putPropertyBasedOnType:348 Was not able to define one of the background CSS shorthand properties: radial-gradient(ellipse farthest-corner at center top,#ececec,#999)
+10-07 14:56:08.420 [0-exec-2] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 14:59:23.301 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 14:59:29.187 [0-exec-1] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 15:01:52.722 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 15:01:56.130 [0-exec-1] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 15:10:13.853 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 18:09:16.123 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 18:09:28.008 [0-exec-1] ERROR| com.app.train.api.controllers.EmailController.sendEmailWithAttachment:56 Cannot invoke "com.itextpdf.layout.margincollapse.MarginsCollapse.joinMargin(float)" because "ownCollapseAfter" is null
+10-07 18:09:29.383 [0-exec-1] ERROR| c.app.train.model.trash.EmailCompartiment.EmailSenderService.sendMailWithAttachment:61 error while sending the mail
+10-07 18:09:29.387 [0-exec-1] ERROR| org.apache.juli.logging.DirectJDKLog.log:175 Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: error while sending the mail : Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 550-5.4.5 Daily user sending limit exceeded. For more information on Gmail
+550-5.4.5 sending limits go to
+550 5.4.5  https://support.google.com/a/answer/166852 4fb4d7f45d1cf-5c8e05eceb9sm3257985a12.76 - gsmtp
+] with root cause
+java.lang.RuntimeException: error while sending the mail : Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 550-5.4.5 Daily user sending limit exceeded. For more information on Gmail
+550-5.4.5 sending limits go to
+550 5.4.5  https://support.google.com/a/answer/166852 4fb4d7f45d1cf-5c8e05eceb9sm3257985a12.76 - gsmtp
+
+	at com.app.train.model.trash.EmailCompartiment.EmailSenderService.sendMailWithAttachment(EmailSenderService.java:63)
+	at com.app.train.api.controllers.EmailController.sendEmailWithAttachment(EmailController.java:59)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+10-07 18:32:19.050 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 18:32:26.139 [0-exec-2] ERROR| c.app.train.model.trash.EmailCompartiment.EmailSenderService.sendMailWithAttachment:61 error while sending the mail
+10-07 18:32:26.143 [0-exec-2] ERROR| org.apache.juli.logging.DirectJDKLog.log:175 Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: error while sending the mail : Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 550-5.4.5 Daily user sending limit exceeded. For more information on Gmail
+550-5.4.5 sending limits go to
+550 5.4.5  https://support.google.com/a/answer/166852 a640c23a62f3a-a9958ffdb2dsm126610066b.12 - gsmtp
+] with root cause
+java.lang.RuntimeException: error while sending the mail : Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 550-5.4.5 Daily user sending limit exceeded. For more information on Gmail
+550-5.4.5 sending limits go to
+550 5.4.5  https://support.google.com/a/answer/166852 a640c23a62f3a-a9958ffdb2dsm126610066b.12 - gsmtp
+
+	at com.app.train.model.trash.EmailCompartiment.EmailSenderService.sendMailWithAttachment(EmailSenderService.java:63)
+	at com.app.train.api.controllers.EmailController.sendEmailWithAttachment(EmailController.java:59)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+10-07 19:04:46.866 [rtedMain] WARN | o.s.b.a.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration.openEntityManagerInViewInterceptor:236 spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+10-07 19:04:51.518 [0-exec-2] WARN | com.itextpdf.layout.renderer.TableRenderer.layout:994 Last row is not completed. Table bottom border may collapse as you do not expect it
+10-07 19:04:53.782 [0-exec-2] ERROR| c.app.train.model.trash.EmailCompartiment.EmailSenderService.sendMailWithAttachment:61 error while sending the mail
+10-07 19:04:53.787 [0-exec-2] ERROR| org.apache.juli.logging.DirectJDKLog.log:175 Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.RuntimeException: error while sending the mail : Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 550-5.4.5 Daily user sending limit exceeded. For more information on Gmail
+550-5.4.5 sending limits go to
+550 5.4.5  https://support.google.com/a/answer/166852 4fb4d7f45d1cf-5c8e05940a6sm3355977a12.1 - gsmtp
+] with root cause
+java.lang.RuntimeException: error while sending the mail : Failed messages: org.eclipse.angus.mail.smtp.SMTPSendFailedException: 550-5.4.5 Daily user sending limit exceeded. For more information on Gmail
+550-5.4.5 sending limits go to
+550 5.4.5  https://support.google.com/a/answer/166852 4fb4d7f45d1cf-5c8e05940a6sm3355977a12.1 - gsmtp
+
+	at com.app.train.model.trash.EmailCompartiment.EmailSenderService.sendMailWithAttachment(EmailSenderService.java:63)
+	at com.app.train.api.controllers.EmailController.sendEmailWithAttachment(EmailController.java:59)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)

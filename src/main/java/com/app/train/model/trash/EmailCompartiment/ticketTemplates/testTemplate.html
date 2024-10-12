@@ -1,18 +1,285 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-    <title>Invoice</title>
+    <meta charset="UTF-8">
+    <title>CodePen - Pure CSS Alitalia Boarding Pass / Ticket</title>
+
 </head>
+<style>
+    /*--------------------
+Body
+--------------------*/
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        margin: 0;
+        color: #363c44;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+    }
+
+    /*--------------------
+Boarding Pass
+--------------------*/
+    .boarding-pass {
+        position: relative;
+        top: 200px;
+        left: 500px;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        height: 382px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        text-transform: uppercase;
+    }
+
+    .boarding-pass small {
+        display: block;
+        font-size: 16px;
+        color: black;
+    }
+
+    .boarding-pass strong {
+        font-size: 15px;
+        display: block;
+    }
+
+    .boarding-pass header {
+        background: #eb232a;
+        padding: 12px 20px;
+        height: 53px;
+    }
+
+    .boarding-pass header .logo {
+        float: left;
+        width: 104px;
+        height: 31px;
+    }
+
+    .boarding-pass header .flight {
+        float: right;
+        color: #fff;
+        text-align: right;
+    }
+
+    .boarding-pass header .flight small {
+        font-size: 8px;
+        margin-bottom: 2px;
+        opacity: 0.8;
+    }
+
+    .boarding-pass header .flight strong {
+        font-size: 18px;
+    }
+
+    .boarding-pass .cities {
+        position: relative;
+    }
+
+    .boarding-pass .cities::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .boarding-pass .cities .city {
+        padding: 20px 18px;
+        float: left;
+    }
+
+    .boarding-pass .cities .city:nth-child(2) {
+        float: right;
+    }
+
+    .boarding-pass .cities .city strong {
+        font-size: 40px;
+        font-weight: 300;
+        line-height: 1;
+    }
+
+    .boarding-pass .cities .city small {
+        margin-bottom: 0px;
+        margin-left: 3px;
+    }
+
+    .boarding-pass .infos {
+        border-top: 1px solid #99D298;
+    }
+
+    .boarding-pass .infos .places,
+    .boarding-pass .infos .times {
+        width: 50%;
+        padding: 10px 0;
+    }
+
+    .boarding-pass .infos .places::after,
+    .boarding-pass .infos .times::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .boarding-pass .infos .times strong {
+        transform: scale(0.9);
+        transform-origin: left bottom;
+    }
+
+    .boarding-pass .infos .places {
+        background: #ECECEC;
+        border-right: 1px solid #99D298;
+    }
+
+    .boarding-pass .infos .places small {
+        color: #97A1AD;
+    }
+
+    .boarding-pass .infos .places strong {
+        color: #239422;
+    }
+
+    .boarding-pass .infos .box {
+        padding: 10px 20px 10px;
+        width: 47%;
+        float: left;
+    }
+
+    .boarding-pass .infos .box small {
+        font-size: 10px;
+    }
+
+    .boarding-pass .strap {
+        clear: both;
+        position: relative;
+        border-top: 1px solid #99D298;
+    }
+
+    .boarding-pass .strap::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .boarding-pass .strap .box {
+        padding: 23px 0 20px 20px;
+    }
+
+    .boarding-pass .strap .box div {
+        margin-bottom: 15px;
+    }
+
+    .boarding-pass .strap .box div small {
+        font-size: 10px;
+    }
+
+    .boarding-pass .strap .box div strong {
+        font-size: 30px;
+    }
+    .boarding-pass .price {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 36px; /* Increased size */
+        color: red;
+        text-align: right;
+    }
+</style>
 <body>
-<h1>DATA CHECK</h1>
-<p>Ticket id: {{ticket_id}}</p>
-<p>Name: {{name}}</p>
-<p>Surname: {{surname}}</p>
-<p>Seat: {{seat}}</p>
-<p>Vagon: {{vagon}}</p>
-<p>Boarding Station: {{boarding_station}}</p>
-<p>Arriving: {{boarding_station_date_time}}</p>
-<p>Exit Station: {{exit_station}}</p>
-<p>Arriving: {{exit_station_date_time}}</p>
+<!-- partial:index.partial.html -->
+<div class="boarding-pass">
+    <header>
+        <div class="flight">
+            <strong>ticket id : {{ticket_id}}</strong>
+        </div>
+    </header>
+    <section class="cities">
+        <div class="city">
+            <small>{{boarding date time}}</small>
+
+            <strong>{{start_city}}</strong>
+        </div>
+        <div class="city">
+            <small>{{arrival date time}}</small>
+
+            <strong>{{end_city}}</strong>
+        </div>
+    </section>
+    <section class="infos">
+        <TABLE>
+            <TR>
+                <TD>
+                    <div class="box">
+                        <small>TRAVEL</small>
+                        <strong><em>{{travel_id}</em></strong>
+                    </div>
+                </TD>
+                <TD>
+                    <div class="box">
+                        <small>TRAIN</small>
+                        <strong><em>{{train_id}</em></strong>
+                    </div>
+                </TD>
+                <TD>
+                    <div class="box">
+                        <small>class</small>
+                        <strong>{{ticket_class}}</strong>
+                    </div>
+                </TD>
+                <TD>
+                    <div class="box">
+                        <small>Person type</small>
+                        <strong>{{person_type}}</strong>
+                    </div>
+                </TD>
+            </TR>
+            <TR>
+                <TD>
+                    <div class="box">
+                        <small>Seat</small>
+                        <strong>{{seat_number}}</strong>
+                    </div>
+                </TD>
+                <TD>
+                    <div class="box">
+                        <small>Vagon</small>
+                        <strong>{{seat_number}}</strong>
+                    </div>
+                </TD>
+                <TD>
+                    <div class="box">
+                        <small>Duration</small>
+                        <strong>{{duration}}</strong>
+                    </div>
+                </TD>
+                <TD>
+
+                    <div class="box">
+                        <small>Distance</small>
+                        <strong>{{distance}}</strong>
+                    </div>
+                </TD>
+            </TR>
+        </TABLE>
+
+    </section>
+    <section class="strap">
+        <div class="box">
+            <div class="passenger">
+                <small>passenger</small>
+                <strong>{{passenger_name}}</strong>
+            </div>
+            <div class="price">
+                <strong>{{price}}</strong> <!-- Displaying the price here -->
+            </div>
+        </div>
+    </section>
+    </section>
+</div>
+
 </body>
 </html>
