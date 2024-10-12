@@ -14,7 +14,6 @@ import java.util.Optional;
 @Repository
 public interface RouteStationRepository extends JpaRepository<RouteStation, Integer> {
 
-
     @Query("SELECT r FROM RouteStation r WHERE r.lineElement.station.id = :station AND r.route = :route")
     Optional<RouteStation> findByStationAndRoute(@Param("station") Integer station, @Param("route") Route route);
 

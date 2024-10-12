@@ -13,11 +13,11 @@ public class TrainVagon implements HasId<Integer> {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "train_loaded_vagons_id")
     private TrainLoadedVagon trainLoadedVagons;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "vagon_id")
     private Vagon vagon;
 

@@ -38,6 +38,7 @@ public class RouteStationServiceImpl {
             Result result = getResult(list, 0);
             return Collections.singletonList(TicketMetaData.builder()
                     .departureTime(result.toStartTime())
+                    .travel(result.travel())
                     .arrivalTime(result.toStartTime().plusMinutes(result.minutes()))
                     .startStation(repository.findByIndexAndRoute(result.travel().getRoute(),
                             result.travelResult().getStartId()).orElseThrow().getLineElement().getStation())
@@ -50,6 +51,7 @@ public class RouteStationServiceImpl {
                 Result startPoint = getResult(list, i);
                 ticketMetaData.add(TicketMetaData.builder()
                         .departureTime(startPoint.toStartTime())
+                        .travel(startPoint.travel())
                         .arrivalTime(startPoint.toStartTime().plusMinutes(startPoint.minutes()))
                         .startStation(repository.findByIndexAndRoute(startPoint.travel().getRoute(),
                                 startPoint.travelResult().getStartId()).orElseThrow().getLineElement().getStation())

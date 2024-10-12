@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface TravelRepository extends JpaRepository<Travel, Integer> {
-    @Query("select t from Travel t where t.route.id = ?1 and FUNCTION('DATE', t.startDateTime) = ?2")
+    @Query("select t from Travel t where t.route.id = ?1 and FUNCTION('DATE', t.startDateTime) >= ?2")
     List<Travel> findByDateAndRoute(Integer routeId, LocalDate startDate);
 
 }

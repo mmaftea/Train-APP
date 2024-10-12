@@ -31,7 +31,7 @@ public class Travel implements HasId<Integer> {
     @JoinColumn(name = "route_id", nullable = false)
     private Route route;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "travel_train_loaded_vagons_id")
     private TrainLoadedVagon travelTrainLoadedVagons;
 
