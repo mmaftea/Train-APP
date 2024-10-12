@@ -44,58 +44,36 @@ public class RaptorServiceImpl implements RaptorService {
                         (existing, replacement) -> replacement
                 ));
 
-//        List<List<Travel>> travelsToTake = paths.stream()
-//                .map(path -> path.getConnections().stream()
-//                        .map(Connection::getRouteId)
-//                        .distinct()
-//                        .flatMap(routeId -> travelRepository.findByDateAndRoute(routeId, date).stream()
-//                                .map(travel -> List.of(travel)) // Wrap each travel in a separate list
-//                        ) // This creates a stream of List<Travel>
-//                        .toList()) // Collecting the lists for each path
-//                .flatMap(List::stream) // Flatten the lists for all paths into a single stream
-//                .collect(Collectors.toList()); // Collect into List<List<Travel>>
-
-//        List<List<Travel>> travelsToTake = paths.stream()
-//                .map(path -> path.getConnections().stream()
-//                        .map(Connection::getRouteId)
-//                        .distinct()
-//                        .flatMap(routeId -> travelRepository.findByDateAndRoute(routeId, date).stream())
-//                        .toList())
-//                .toList();
-
         List<List<Travel>> travelsToTake = paths.stream()
                 .map(path -> {
-                    // For each path, get distinct route IDs and find travels for each route
                     List<List<Travel>> routeTravels = path.getConnections().stream()
                             .map(Connection::getRouteId)
                             .distinct()
-                            .map(routeId -> travelRepository.findByDateAndRoute(routeId, date))  // List of travels per route
+                            .map(routeId -> travelRepository.findByDateAndRoute(routeId, date))
                             .toList();
 
-                    // Compute the Cartesian product of the lists of travels
                     return cartesianProduct(routeTravels);
                 })
                 .flatMap(Collection::stream)
-                .toList();  // Collect the cartesian product lists for each path
-
+                .toList();
 
         return mapToResult(travelsToTake, start, end, lastConnectionByRoute);
     }
 
     private <T> List<List<T>> cartesianProduct(List<List<T>> lists) {
         List<List<T>> result = new ArrayList<>();
-        cartesianProductRecursive(lists, result, 0, new ArrayList<>());
+        cartesianProductProxy(lists, result, 0, new ArrayList<>());
         return result;
     }
 
-    private <T> void cartesianProductRecursive(List<List<T>> lists, List<List<T>> result, int depth, List<T> current) {
+    private <T> void cartesianProductProxy(List<List<T>> lists, List<List<T>> result, int depth, List<T> current) {
         if (depth == lists.size()) {
             result.add(new ArrayList<>(current));
             return;
         }
         for (T element : lists.get(depth)) {
             current.add(element);
-            cartesianProductRecursive(lists, result, depth + 1, current);
+            cartesianProductProxy(lists, result, depth + 1, current);
             current.remove(current.size() - 1);
         }
     }
@@ -132,7 +110,10 @@ public class RaptorServiceImpl implements RaptorService {
                     .startId(0)
                     .endId(start.getEndId())
                     .build();
-            LocalDateTime startTime = start.getTravel().getStartDateTime().plusMinutes(utilityService.calculateDistanceAndDuration(finalResult).getMinutes());
+
+            LocalDateTime startTime = start.getTravel().getStartDateTime()
+                    .plusMinutes(utilityService.calculateDistanceAndDuration(finalResult)
+                            .getMinutes());
             LocalDateTime nextStart = next.getTravel().getStartDateTime();
 
             if (startTime.
@@ -144,9 +125,12 @@ public class RaptorServiceImpl implements RaptorService {
 
     private TravelResult resultBuilder(Travel t, Map<Integer, Connection> lastConnectionByRoute) {
         if (startIndex < 0) {
-            startIndex = routeIntegerRepository.getIndexByStation(t.getRouteId(), -startIndex).orElseThrow();
+            startIndex = routeIntegerRepository.
+                    getIndexByStation(t.getRouteId(), -startIndex).orElseThrow();
         } else {
-            startIndex = routeIntegerRepository.findByStationAndRoute(startStation, t.getRoute()).orElseThrow().getStationIndex();
+            startIndex = routeIntegerRepository.
+                    findByStationAndRoute(startStation, t.getRoute()).
+                    orElseThrow().getStationIndex();
         }
 
         var temp = getStation(t, lastConnectionByRoute);

@@ -18,6 +18,7 @@ public class SeatController {
 
     private final SeatTicketInfoService seatTicketInfoService;
 
+    //RENAME
     @GetMapping("/reserved")
     List<SeatBooking> Get(@RequestParam int traved_id, @RequestParam int start_index, @RequestParam int end_index){
         return seatTicketInfoService.GetSeatBookings(traved_id, start_index, end_index);
