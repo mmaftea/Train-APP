@@ -18,7 +18,7 @@ VALUES
     (8, 'TL-008'),
     #CAINARI - PARCANI [TIRASPOL]
     (9, 'TL-009'),
-    #ABACLIA - ETULIA - GALATI
+    #PARCANI [TIRASPOL] - CAINARI
     (10, 'TL-010');
 
 #TL-001

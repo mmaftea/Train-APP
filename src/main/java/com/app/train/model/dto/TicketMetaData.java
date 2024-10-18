@@ -5,6 +5,7 @@ import com.app.train.model.entity.Travel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @ToString
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 public class TicketMetaData {
