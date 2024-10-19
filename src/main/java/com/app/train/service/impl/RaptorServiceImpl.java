@@ -57,7 +57,9 @@ public class RaptorServiceImpl implements RaptorService {
                 .flatMap(Collection::stream)
                 .toList();
 
-        return mapToResult(travelsToTake, start, end, lastConnectionByRoute);
+        List<List<TravelResult>> mapped =
+                mapToResult(travelsToTake, start, end, lastConnectionByRoute);
+        return mapped;
     }
 
     private <T> List<List<T>> cartesianProduct(List<List<T>> lists) {
