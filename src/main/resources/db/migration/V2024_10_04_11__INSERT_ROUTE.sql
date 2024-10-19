@@ -1,3 +1,5 @@
+
+#MOLDOVA [0 - 50]
 insert into route (id,route_name)
 values
     (1,'Ocnita - Balti'),
@@ -6,20 +8,33 @@ values
     (4,'Ribnita - Balti'),
     (5,'Ungheni - Balti'),
     (6,'Balti - Ungheni'),
-    (7,'Chisinau - Ungheni'),--done
-    (8,'Ungheni - Chisinau'),--done
-    (9,'Tiraspol - Chisinau'),--done
-    (10,'Chisinau - Tiraspol'),--done
+    (7,'Chisinau - Ungheni'),#done
+    (8,'Ungheni - Chisinau'),#done
+    (9,'Tiraspol - Chisinau'),#done
+    (10,'Chisinau - Tiraspol'),#done
     (11,'Chisinau - Comrat'),
     (12,'Comrat - Chisinau'),
     (13,'Comrat - Bender'),
     (14,'Bender - Comrat'),
-    (15,'Giugiulesti - Comrat'),--done
-    (16,'Comrat - Giugiulesti'),--done
-    (17,'Etulia - Comrat'), -- done
-    (18,'Comrat - Etulia') --done
+    (15,'Giugiulesti - Comrat'),#done
+    (16,'Comrat - Giugiulesti'),#done
+    (17,'Etulia - Comrat'), # done
+    (18,'Comrat - Etulia'); #done
 
-
+#INTERNATIONAL[50 - 100]  aici ei statiile mai rar, intre ele 10+ km sa fie centre mai mari ia
+INSERT INTO route
+VALUES
+    (50, 'Chisinau - Iasi'),
+    (51, 'Iasi - Chisinau'),
+    (52, 'Chisinau - Odessa'),
+    (53, 'Odessa - Chisinau'),
+    (54, 'Chisinau - Galati'), #galati - giugiulesti - cahul - comrat - chisinau # peste o statie
+    (55, 'Galati - Chisinau'),
+    (56, 'Tiraspol - Galati'), #tiraspol - bender - abaclia - etulia - reni - galati # peste o statie sa iai
+    (57, 'Chisinau - Bucuresti'), #chisinau - iasi - galati - bucuresti
+    (58, 'Bucuresti - Chisinau'), #
+    (59, 'Chisinau - Kiev'), #big stations only
+    (60, 'Kiev - Chisinau');
 insert into
   routestation
   (id, route_id, line_Element, station_index, departure_duration)
@@ -115,7 +130,7 @@ values
   (79, 15, 262, 14, 1),
   (80, 15, 263, 15, 1),
   (81, 15, 264, 16, 1),
-  (82, 15, 265, 17, 0);
+  (82, 15, 265, 17, 0),
 
   -- Comrat-Giugiulesti
   (83, 16, 230, 0, 0),
