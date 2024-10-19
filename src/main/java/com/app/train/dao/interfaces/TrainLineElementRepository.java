@@ -11,6 +11,6 @@ import java.util.Optional;
 
 @Repository
 public interface TrainLineElementRepository extends JpaRepository<TrainLineElement, Integer> {
-    @Query("SELECT e FROM TrainLineElement e WHERE e.trainLine = :trainLine ORDER BY e.km DESC")
+    @Query("SELECT e FROM TrainLineElement e WHERE e.trainLine = :trainLine ORDER BY e.km DESC LIMIT 1")
     TrainLineElement findLastElementByTrainLine(@Param("trainLine") TrainLine trainLine);
 }
