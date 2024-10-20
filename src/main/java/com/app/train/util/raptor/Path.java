@@ -2,11 +2,24 @@ package com.app.train.util.raptor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Path {
     private List<Connection> connections = new ArrayList<>();
     private long totalTravelTime;
     private int transfers;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Path path)) return false;
+        return totalTravelTime == path.totalTravelTime && transfers == path.transfers;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalTravelTime, transfers);
+    }
 
     public Path() {
         this.totalTravelTime = 0;

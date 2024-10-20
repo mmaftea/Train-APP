@@ -18,7 +18,7 @@ public class AllRoutesRaptorService {
     private RaptorEntityMapper entityMapper;
 
     public List<Path> findAllRoutes(int startStopId, int endStopId) {
-        Map<Integer, Stop> stops = entityMapper.loadStops();
+        Map<Integer, Stop> stops = entityMapper.getStopsMap();
         Queue<Path> queue = new LinkedList<>();
         List<Path> allPaths = new ArrayList<>();
 

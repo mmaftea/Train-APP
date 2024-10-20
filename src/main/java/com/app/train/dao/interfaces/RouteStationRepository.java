@@ -2,6 +2,7 @@ package com.app.train.dao.interfaces;
 
 import com.app.train.model.entity.Route;
 import com.app.train.model.entity.RouteStation;
+import com.app.train.model.entity.Station;
 import com.app.train.model.entity.TrainLine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -27,4 +28,14 @@ public interface RouteStationRepository extends JpaRepository<RouteStation, Inte
     List<TrainLine> getTrainLinesInBetweenStations(@Param("start") Integer startIndex, @Param("end") Integer endIndex, @Param("route") Route route);
 
     Optional<RouteStation> findByRouteAndStationIndex(Route route, int i);
+
+    @Query("SELECT r.route.id, r.lineElement.station.id FROM RouteStation r " +
+            "WHERE r.stationIndex = (SELECT MAX(r2.stationIndex) FROM RouteStation r2 WHERE r2.route.id = r.route.id) " +
+            "GROUP BY r.route.id")
+    List<Object[]> findLastStationIdsByRoutes();
+
+    @Query("select MAX(r.stationIndex) from RouteStation r where r.route.id = ?1")
+    Integer findLastIndexByRoute(Integer id);
+
+
 }

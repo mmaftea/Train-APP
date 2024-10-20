@@ -8,6 +8,7 @@ import com.app.train.model.entity.RouteStation;
 import com.app.train.model.entity.Station;
 import com.app.train.model.entity.Travel;
 import com.app.train.service.UtilityService;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +23,20 @@ public class RaptorEntityMapper {
 
     private final StationRepository stationRepository;
     private final RouteStationRepository routeStationRepository;
-    private final TrainLineElementRepository trainLineElementRepository;
     private final UtilityService utilityService;
 
-    public Map<Integer, Stop> loadStops() {
+    private Map<Integer, Stop> stopsMap;
+
+    @PostConstruct
+    public void init() {
+        stopsMap = loadStops();
+    }
+
+    public Map<Integer, Stop> getStopsMap() {
+        return stopsMap;
+    }
+
+    private Map<Integer, Stop> loadStops() {
         Map<Integer, Stop> stopsMap = new HashMap<>();
 
         List<Station> stations = stationRepository.findAll();
@@ -41,8 +52,14 @@ public class RaptorEntityMapper {
 
             if (nextStationId != -1) {
                 int routeId = routeStation.getRoute().getId();
-                var start = routeStationRepository.getIndexByStation(routeId, currentStationId).orElse(null);
-                var end = routeStationRepository.getIndexByStation(routeId, nextStationId).orElse(null);
+                var start = 0;
+                var end = 0;
+                try {
+                    start = routeStationRepository.getIndexByStation(routeId, currentStationId).orElse(null);
+                    end = routeStationRepository.getIndexByStation(routeId, nextStationId).orElse(null);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
                 var mock = createMockTravel(routeStation, start, end);
                 long duration = utilityService.calculateDistanceAndDuration(mock).getMinutes();
 
@@ -70,8 +87,6 @@ public class RaptorEntityMapper {
         Optional<RouteStation> nextRouteStation = routeStationRepository.findByRouteAndStationIndex(
                 currentRouteStation.getRoute(), currentRouteStation.getStationIndex() + 1
         );
-        if (nextRouteStation.isPresent()) {
-            return nextRouteStation.get().getLineElement().getStation().getId();
-        } else return -1;
+        return nextRouteStation.map(rs -> rs.getLineElement().getStation().getId()).orElse(-1);
     }
 }
