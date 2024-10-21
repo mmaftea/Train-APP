@@ -33,9 +33,9 @@ public class RouteStationServiceImpl {
         return repository.findByIndexAndRoute(route, index).orElseThrow().getLineElement().getStation();
     }
 
-    public List<TicketMetaData> squashResults(List<TravelResult> list) {
+    public List<TicketMetaData> squashResults(List<TravelResult> list,Integer startId) {
         if (list.size() == 1) {
-            Result result = getResult(list, 0);
+            Result result = getResult(list, 0, startId);
             return Collections.singletonList(TicketMetaData.builder()
                     .departureTime(result.toStartTime())
                     .travel(result.travel())
@@ -48,7 +48,7 @@ public class RouteStationServiceImpl {
         } else {
             List<TicketMetaData> ticketMetaData = new ArrayList<>();
             for (int i = 0; i < list.size(); i++) {
-                Result startPoint = getResult(list, i);
+                Result startPoint = getResult(list, i, startId);
                 ticketMetaData.add(TicketMetaData.builder()
                         .departureTime(startPoint.toStartTime())
                         .travel(startPoint.travel())
@@ -65,13 +65,14 @@ public class RouteStationServiceImpl {
         }
     }
 
-    private Result getResult(List<TravelResult> list, int index) {
+    private Result getResult(List<TravelResult> list, int index, int startId) {
         TravelResult travelResult = list.get(index);
         Travel travel = travelResult.getTravel();
+        int starty = repository.getIndexByStation(travel.getRouteId(),startId).orElse(0);
 
         TravelResult prevResult = TravelResult.builder()
                 .travel(travel)
-                .startId(prevStartOnTravel.getOrDefault(travel, 0))
+                .startId(index == 0 ? starty : 0)
                 .endId(travelResult.getStartId())
                 .build();
 

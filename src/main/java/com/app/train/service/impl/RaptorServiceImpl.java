@@ -12,6 +12,7 @@ import com.app.train.util.raptor.Path;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -185,6 +186,11 @@ public class RaptorServiceImpl implements RaptorService {
             if (currentEndTime.isAfter(nextStartTime)) {
                 return false;
             }
+
+//            if (currentEndTime.isAfter(nextStartTime)
+//                    && Duration.between(currentEndTime, nextStartTime).toMinutes() < 180) {
+//                return false;
+//            }
         }
         return true;
     }
