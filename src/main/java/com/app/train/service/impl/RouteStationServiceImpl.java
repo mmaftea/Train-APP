@@ -15,9 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -26,14 +24,13 @@ public class RouteStationServiceImpl {
     private final RouteStationRepository repository;
     private final RouteRepository routeRepository;
     private final UtilityService utilityService;
-    private Map<Travel, Integer> prevStartOnTravel = new HashMap<>();
 
     public Station getStationFromIndex(int index, int routeId) {
         Route route = routeRepository.findById(routeId).orElseThrow();
         return repository.findByIndexAndRoute(route, index).orElseThrow().getLineElement().getStation();
     }
 
-    public List<TicketMetaData> squashResults(List<TravelResult> list,Integer startId) {
+    public List<TicketMetaData> squashResults(List<TravelResult> list, Integer startId) {
         if (list.size() == 1) {
             Result result = getResult(list, 0, startId);
             return Collections.singletonList(TicketMetaData.builder()
@@ -68,11 +65,10 @@ public class RouteStationServiceImpl {
     private Result getResult(List<TravelResult> list, int index, int startId) {
         TravelResult travelResult = list.get(index);
         Travel travel = travelResult.getTravel();
-        int starty = repository.getIndexByStation(travel.getRouteId(),startId).orElse(0);
 
         TravelResult prevResult = TravelResult.builder()
                 .travel(travel)
-                .startId(index == 0 ? starty : 0)
+                .startId(0)
                 .endId(travelResult.getStartId())
                 .build();
 
