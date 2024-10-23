@@ -4,6 +4,7 @@ import com.app.train.model.entity.Route;
 import com.app.train.model.entity.RouteStation;
 import com.app.train.model.entity.Station;
 import com.app.train.model.entity.TrainLine;
+import com.app.train.model.entity.TrainLineInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,6 +27,13 @@ public interface RouteStationRepository extends JpaRepository<RouteStation, Inte
 
     @Query("SELECT DISTINCT r.lineElement.trainLine FROM RouteStation r WHERE r.stationIndex >= :start and r.stationIndex <=:end and r.route = :route")
     List<TrainLine> getTrainLinesInBetweenStations(@Param("start") Integer startIndex, @Param("end") Integer endIndex, @Param("route") Route route);
+
+    @Query("SELECT new com.app.train.model.entity.TrainLineInfo(r.lineElement.trainLine, COUNT(r)) " +
+            "FROM RouteStation r " +
+            "WHERE r.stationIndex >= :start AND r.stationIndex <= :end AND r.route = :route " +
+            "GROUP BY r.lineElement.trainLine")
+    List<TrainLineInfo> getTrainLinesInBetweenStationsWithCount(@Param("start") Integer startIndex, @Param("end") Integer endIndex, @Param("route") Route route);
+
 
     Optional<RouteStation> findByRouteAndStationIndex(Route route, int i);
 

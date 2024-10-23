@@ -6,8 +6,8 @@ import com.app.train.model.dto.TravelResult;
 import com.app.train.model.dto.UtilityResult;
 import com.app.train.model.entity.Route;
 import com.app.train.model.entity.RouteStation;
-import com.app.train.model.entity.TrainLine;
 import com.app.train.model.entity.TrainLineElement;
+import com.app.train.model.entity.TrainLineInfo;
 import com.app.train.service.UtilityService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +32,7 @@ public class UtilityServiceImpl implements UtilityService {
 
         log.info("Start Station: {} ; End Station: {}", startStation, endStation);
 
-        var linesTraveled = routeStationRepository.getTrainLinesInBetweenStations(
+        var linesTraveled = routeStationRepository.getTrainLinesInBetweenStationsWithCount(
                 startStation.getStationIndex(),
                 endStation.getStationIndex(),
                 route
@@ -57,18 +57,19 @@ public class UtilityServiceImpl implements UtilityService {
         return Math.round((km * 80) / 60);
     }
 
-    private double calculateDistanceForTrainLine(TrainLine trainLine, RouteStation startStation, RouteStation endStation) {
+    private double calculateDistanceForTrainLine(TrainLineInfo trainLine, RouteStation startStation, RouteStation endStation) {
         double distance = 0;
-        if (trainLine.equals(startStation.getLineElement().getTrainLine())) {
-            TrainLineElement lastElement = trainLineElementRepository.findLastElementByTrainLine(trainLine);
+        if (trainLine.getTrainLine().equals(startStation.getLineElement().getTrainLine())) {
+            TrainLineElement lastElement = trainLineElementRepository.findById(startStation.getLineElement().getId() + trainLine.getElementCount() - 1).orElseThrow();
             distance = lastElement.getKm() - startStation.getLineElement().getKm();
-        } else if (trainLine.equals(endStation.getLineElement().getTrainLine())) {
-            distance = endStation.getLineElement().getKm();
+        } else if (trainLine.getTrainLine().equals(endStation.getLineElement().getTrainLine())) {
+            TrainLineElement lastElement = trainLineElementRepository.findById(endStation.getLineElement().getId() - trainLine.getElementCount()).orElseThrow();
+            distance = endStation.getLineElement().getKm() - lastElement.getKm();
         } else {
-            TrainLineElement lastElement = trainLineElementRepository.findLastElementByTrainLine(trainLine);
+            TrainLineElement lastElement = trainLineElementRepository.findLastElementByTrainLine(trainLine.getTrainLine());
             distance = lastElement.getKm();
         }
-        log.debug("Distance for train line {}: {}", trainLine.getName(), distance);
+        log.debug("Distance for train line {}: {}", trainLine.getTrainLine().getName(), distance);
         return distance;
     }
 

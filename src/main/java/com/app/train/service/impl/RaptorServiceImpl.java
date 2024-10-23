@@ -12,6 +12,7 @@ import com.app.train.util.raptor.Path;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -33,7 +34,6 @@ public class RaptorServiceImpl implements RaptorService {
 
     private Integer startIndex = 1;
     private Integer startStation = 1;
-
 
 
     @Override
@@ -97,7 +97,7 @@ public class RaptorServiceImpl implements RaptorService {
         List<List<TravelResult>> mapped =
                 mapToResult(travelsToTake, start, end, lastConnectionByRoute);
 
-        return mapped;
+        return mapped.parallelStream().distinct().toList();
     }
 
     private List<List<TravelResult>> mapToResult(List<List<Travel>> travels, Integer start, Integer end, Map<Integer, Connection> lastConnectionByRoute) {
@@ -108,11 +108,12 @@ public class RaptorServiceImpl implements RaptorService {
             var list = t.stream()
                     .map(travel -> this.resultBuilder(travel, lastConnectionByRoute))
                     .toList();
-            if(!list.contains(null))
+            TravelResult travelResult = list.get(list.size() - 1);
+            if (!list.contains(null) && travelResult.getEndId() != travelResult.getStartId())
                 result.add(list);
         }
         startIndex = -1;
-        
+
         return result;
     }
 
@@ -136,9 +137,9 @@ public class RaptorServiceImpl implements RaptorService {
 
     private TravelResult resultBuilder(Travel t, Map<Integer, Connection> lastConnectionByRoute) {
         if (startIndex < 0) {
-            try{
+            try {
                 startIndex = routeStationRepository.getIndexByStation(t.getRouteId(), -startIndex).orElseThrow();
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println(e);
             }
         } else {
@@ -173,7 +174,7 @@ public class RaptorServiceImpl implements RaptorService {
             Travel current = travels.get(i);
             Travel next = travels.get(i + 1);
 
-            var ending =  routeStationRepository.findLastIndexByRoute(current.getRouteId());
+            var ending = routeStationRepository.findLastIndexByRoute(current.getRouteId());
 
             TravelResult result = TravelResult.builder()
                     .travel(current)
@@ -185,14 +186,13 @@ public class RaptorServiceImpl implements RaptorService {
                     .plusMinutes(utilityService.calculateDistanceAndDuration(result).getMinutes());
             LocalDateTime nextStartTime = next.getStartDateTime();
 
-            if (currentEndTime.isAfter(nextStartTime)) {
+
+            if (currentEndTime.isAfter(nextStartTime)
+                    || Duration.between(currentEndTime, nextStartTime).toMinutes() > 600
+                    || Duration.between(currentEndTime, nextStartTime).toMinutes() < 0
+            ) {
                 return false;
             }
-
-//            if (currentEndTime.isAfter(nextStartTime)
-//                    && Duration.between(currentEndTime, nextStartTime).toMinutes() < 180) {
-//                return false;
-//            }
         }
         return true;
     }
