@@ -36,6 +36,7 @@ public class RaptorEntityMapper {
         return stopsMap;
     }
 
+
     private Map<Integer, Stop> loadStops() {
         Map<Integer, Stop> stopsMap = new HashMap<>();
 

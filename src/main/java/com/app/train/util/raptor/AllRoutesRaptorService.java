@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 import static com.app.train.util.Constants.MAX_TRANSFERS;
@@ -19,7 +21,7 @@ public class AllRoutesRaptorService {
 
     public List<Path> findAllRoutes(int startStopId, int endStopId) {
         Map<Integer, Stop> stops = entityMapper.getStopsMap();
-        Queue<Path> queue = new LinkedList<>();
+        Queue<Path> queue = new PriorityQueue<>((o1, o2) -> Math.toIntExact(o1.getTotalTravelTime() - o2.getTotalTravelTime()));
         List<Path> allPaths = new ArrayList<>();
 
         Stop startStop = stops.get(startStopId);
@@ -40,7 +42,7 @@ public class AllRoutesRaptorService {
                 continue;
             }
 
-            if (currentPath.getTransfers() > MAX_TRANSFERS) continue;
+            if (currentPath.getTransfers() >= MAX_TRANSFERS) continue;
 
             Stop lastStop = stops.get(lastStopId);
             if (lastStop == null) continue;

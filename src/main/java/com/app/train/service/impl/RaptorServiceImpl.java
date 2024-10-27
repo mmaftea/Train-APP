@@ -41,7 +41,6 @@ public class RaptorServiceImpl implements RaptorService {
         var paths = allRoutes.findAllRoutes(start, end);
         paths = paths.parallelStream().distinct().toList();
 
-//        List<Object[]> matrix1  = routeStationRepository.findLastStationIdsByRoutes();
 
         Map<Integer, Connection> lastConnectionByRoute = paths.stream()
                 .sorted(comparing(Path::getTransfers).reversed())
@@ -52,16 +51,8 @@ public class RaptorServiceImpl implements RaptorService {
                         (existing, replacement) -> replacement
                 ));
 
-        // Step 1: Gather last station IDs efficiently
-//        Map<Integer, Integer> lastConnectionByRoutes = new HashMap<>();
-//        for (Object[] result : matrix1) {
-//            Integer routeId = (Integer) result[0];
-//            Integer lastStationId = (Integer) result[1];
-//            lastConnectionByRoutes.put(routeId, lastStationId);
-//        }
 
-        // Step 2: Process paths and collect travels
-        List<List<Travel>> travelsToTake = paths.stream()
+        List<List<Travel>> travelsToTake = paths.parallelStream()
                 .map(path -> {
                     List<List<Travel>> routeTravels = path.getConnections().stream()
                             .map(Connection::getRouteId)
@@ -74,26 +65,11 @@ public class RaptorServiceImpl implements RaptorService {
                 .flatMap(Collection::stream)
                 .toList();
 
-        // Step 3: Filter travels by consecutive times
+
         travelsToTake = travelsToTake.parallelStream()
                 .filter(travelList -> travelList.size() == 1 || consecutiveTimes(travelList))
                 .collect(Collectors.toList());
 
-        // Step 4: Perform the cartesian product on valid travel lists
-//        List<List<Travel>> validTravelCombinations = cartesianProduct(travelsToTake);
-
-        // Step 5: Map and build travel results
-//        List<List<TravelResult>> mapped = validTravelCombinations.stream()
-//                .map(travelList -> {
-//                    startIndex = -start; // Resetting startIndex for each travel batch
-//                    var results = travelList.stream()
-//                            .map(travel -> resultBuilder(travel, lastConnectionByRoutes))
-//                            .filter(Objects::nonNull) // Filter null results
-//                            .collect(Collectors.toList());
-//                    return results.isEmpty() ? null : results; // Return null for empty results
-//                })
-//                .filter(Objects::nonNull) // Remove any null results
-//                .collect(Collectors.toList());
         List<List<TravelResult>> mapped =
                 mapToResult(travelsToTake, start, end, lastConnectionByRoute);
 

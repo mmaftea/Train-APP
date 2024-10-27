@@ -13,7 +13,9 @@ public class Path {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Path path)) return false;
-        return totalTravelTime == path.totalTravelTime && transfers == path.transfers && path.connections.get(0).getRouteId() == connections.get(0).getRouteId();
+        return totalTravelTime == path.totalTravelTime && transfers == path.transfers
+                && path.connections.get(0).getRouteId() == connections.get(0).getRouteId()
+                && path.connections.get(path.connections.size()-1).getRouteId() == connections.get(connections.size()-1).getRouteId() ;
     }
 
     @Override
