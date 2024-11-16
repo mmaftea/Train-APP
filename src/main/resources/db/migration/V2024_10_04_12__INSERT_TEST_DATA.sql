@@ -394,6 +394,7 @@ INSERT INTO travel VALUES (86, 18, 1, '2024-01-01 08:30:00'),
                            (89, 18, 1, '2024-01-01 14:30:00'),
                            (90, 18, 1, '2024-01-01 16:30:00');
 
+
 -- Chisinau - Iasi
 INSERT INTO travel VALUES (91, 50, 1, '2024-01-01 08:00:00'),
                            (94, 50, 1, '2024-01-01 14:00:00');
@@ -419,8 +420,8 @@ INSERT INTO travel VALUES (111, 54, 1, '2024-01-01 08:00:00'),
 INSERT INTO travel VALUES (116, 55, 1, '2024-01-01 08:30:00'),
                            (119, 55, 1, '2024-01-01 14:30:00');
 
-/*
 
+/*
 
 -- Tiraspol - Galati
 INSERT INTO travel VALUES (121, 56, 1, '2024-01-01 08:00:00'),
@@ -437,6 +438,7 @@ INSERT INTO travel VALUES (131, 58, 1, '2024-01-01 08:00:00'),
 -- Bucuresti - Chisinau
 INSERT INTO travel VALUES (136, 59, 1, '2024-01-01 08:30:00'),
                            (139, 59, 1, '2024-01-01 14:30:00');
+
 
 -- Chisinau - Kiev
 INSERT INTO travel VALUES (141, 60, 1, '2024-01-01 08:00:00'),

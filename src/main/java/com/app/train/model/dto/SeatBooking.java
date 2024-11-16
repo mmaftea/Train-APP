@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SeatBooking {
     private int seatNo;
-    private int vagon_index;
+    private int vagon_id;
 }

@@ -3,6 +3,7 @@ package com.app.train.model.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GeneratedColumn;
 
 @Getter
 @Setter
@@ -11,9 +12,10 @@ import lombok.Setter;
 public class BaseTicket implements HasId<Integer>{
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "travel_id")
     private Travel travel;
 
