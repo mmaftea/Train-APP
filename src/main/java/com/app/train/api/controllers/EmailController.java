@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,20 +35,20 @@ public class EmailController {
 
         Map<String, String> placeholders = new HashMap<>();
 
+        placeholders.put("class", info.ticket_class());
         placeholders.put("ticket_id", "" + info.ticketID());
-        placeholders.put("passsager_name", info.surname() + info.name());
-        placeholders.put("travel_id", "" + info.travel_id());
         placeholders.put("train_id", "" + info.train_id());
-        placeholders.put("seat_number", "" + info.seat());
-        placeholders.put("vagon_number", "" + info.vagon());
-        placeholders.put("start_city", info.boardStation());
-        placeholders.put("end_city", "" + info.boardDateTime());
-        placeholders.put("boarding date time", info.endStation());
-        placeholders.put("arrival date time", "" + info.endDateTime());
-        placeholders.put("ticket_class", info.ticket_class());
-        placeholders.put("distance", info.distance() + " km");
-        placeholders.put("person_type", info.person_type());
-        placeholders.put("price", "" + info.price());
+        placeholders.put("seat", "" + info.seat());
+        placeholders.put("vagon", "" + info.vagon());
+        placeholders.put("pas_type", info.person_type());
+        placeholders.put("st_date", info.boardDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        placeholders.put("st_stat", info.boardStation());
+        placeholders.put("end_stat", info.endStation());
+        placeholders.put("end_date", info.endDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        placeholders.put("price","" + info.price());
+        placeholders.put("val", info.curency());
+        placeholders.put("valid", info.boardDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
 
 
         // CREATE A PDF FILE

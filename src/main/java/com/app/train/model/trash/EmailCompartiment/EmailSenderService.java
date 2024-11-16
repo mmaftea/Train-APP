@@ -52,14 +52,11 @@ public class EmailSenderService {
             mimeMessageHelper.addAttachment(fileSystemResource.getFilename(), fileSystemResource);
             mailSender.send(mimeMessage);
             log.info("Mail with attachment sent successfully..");
-            }catch (Exception exception) {
+            }
+        catch (Exception exception) {
                 log.error("error while sending the mail");
                 throw new RuntimeException("error while sending the mail : "
                         + exception.getMessage());
             }
-
     }
-    // TODO
-    // SEND CONFIRMATION CODE
-
 }

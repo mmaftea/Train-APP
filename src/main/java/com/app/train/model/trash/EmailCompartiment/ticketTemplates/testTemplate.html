@@ -1,285 +1,119 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-    <meta charset="UTF-8">
-    <title>CodePen - Pure CSS Alitalia Boarding Pass / Ticket</title>
-
-</head>
+<body>
 <style>
-    /*--------------------
-Body
---------------------*/
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
 
-    body {
-        height: 100vh;
-        margin: 0;
-        color: #363c44;
-        font-size: 14px;
-        font-family: "Roboto", sans-serif;
+        font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+        table-layout: fixed; /* Ensures equal column width */
+        width: 100%; /* Optional: Adjust width of the table */
     }
+    .header{
+        background-color: red;
+        height:30%;
+        COLOR:WHITE;
+        font-size: 24px; /* Increase font size */
+        font-weight: bold; /* Make text bold */
+    }
+    th, td {
+        border: 1px solid black;
+        width: 33%; /* Equal column width */
 
-    /*--------------------
-Boarding Pass
---------------------*/
-    .boarding-pass {
-        position: relative;
-        top: 200px;
-        left: 500px;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        height: 382px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-        text-transform: uppercase;
     }
-
-    .boarding-pass small {
-        display: block;
-        font-size: 16px;
-        color: black;
+    .dataLabel{
+        font-weight: bold; /* Make text bold */
     }
-
-    .boarding-pass strong {
-        font-size: 15px;
-        display: block;
-    }
-
-    .boarding-pass header {
-        background: #eb232a;
-        padding: 12px 20px;
-        height: 53px;
-    }
-
-    .boarding-pass header .logo {
-        float: left;
-        width: 104px;
-        height: 31px;
-    }
-
-    .boarding-pass header .flight {
-        float: right;
-        color: #fff;
-        text-align: right;
-    }
-
-    .boarding-pass header .flight small {
-        font-size: 8px;
-        margin-bottom: 2px;
-        opacity: 0.8;
-    }
-
-    .boarding-pass header .flight strong {
-        font-size: 18px;
-    }
-
-    .boarding-pass .cities {
-        position: relative;
-    }
-
-    .boarding-pass .cities::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    .boarding-pass .cities .city {
-        padding: 20px 18px;
-        float: left;
-    }
-
-    .boarding-pass .cities .city:nth-child(2) {
-        float: right;
-    }
-
-    .boarding-pass .cities .city strong {
-        font-size: 40px;
-        font-weight: 300;
-        line-height: 1;
-    }
-
-    .boarding-pass .cities .city small {
-        margin-bottom: 0px;
-        margin-left: 3px;
-    }
-
-    .boarding-pass .infos {
-        border-top: 1px solid #99D298;
-    }
-
-    .boarding-pass .infos .places,
-    .boarding-pass .infos .times {
-        width: 50%;
-        padding: 10px 0;
-    }
-
-    .boarding-pass .infos .places::after,
-    .boarding-pass .infos .times::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .boarding-pass .infos .times strong {
-        transform: scale(0.9);
-        transform-origin: left bottom;
-    }
-
-    .boarding-pass .infos .places {
-        background: #ECECEC;
-        border-right: 1px solid #99D298;
-    }
-
-    .boarding-pass .infos .places small {
-        color: #97A1AD;
-    }
-
-    .boarding-pass .infos .places strong {
-        color: #239422;
-    }
-
-    .boarding-pass .infos .box {
-        padding: 10px 20px 10px;
-        width: 47%;
-        float: left;
-    }
-
-    .boarding-pass .infos .box small {
-        font-size: 10px;
-    }
-
-    .boarding-pass .strap {
-        clear: both;
-        position: relative;
-        border-top: 1px solid #99D298;
-    }
-
-    .boarding-pass .strap::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .boarding-pass .strap .box {
-        padding: 23px 0 20px 20px;
-    }
-
-    .boarding-pass .strap .box div {
-        margin-bottom: 15px;
-    }
-
-    .boarding-pass .strap .box div small {
-        font-size: 10px;
-    }
-
-    .boarding-pass .strap .box div strong {
-        font-size: 30px;
-    }
-    .boarding-pass .price {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        font-size: 36px; /* Increased size */
-        color: red;
-        text-align: right;
+    .priceLabel{
+        background-color: red;
+        COLOR:WHITE;
+        font-size: 18px; /* Increase font size */
+        font-weight: bold; /* Make text bold */
     }
 </style>
-<body>
-<!-- partial:index.partial.html -->
-<div class="boarding-pass">
-    <header>
-        <div class="flight">
-            <strong>ticket id : {{ticket_id}}</strong>
-        </div>
-    </header>
-    <section class="cities">
-        <div class="city">
-            <small>{{boarding date time}}</small>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<table>
+    <tr class="header">
+        <td>
+            CFM
+        </td>
+        <td colspan="2">
+            MOLDOVA
+        </td>
+        <td WIDTH=30%>
+            {{class}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td>
+            Ticket ID
+        </td>
+        <td WIDTH=20%>
+            Train ID
+        </td>
+        <td rowspan="6">
+            <img src="src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/ticketsPDF/icon.png" style="width: 100%; height: auto;"
+                 alt="Icon">
+        </td>
+        <td  class="dataLabel">
+            {{st_stat}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td class="dataLabel">
+            {{ticket_id}}
+        </td>
+        <td class="dataLabel">
+            {{train_id}}
+        </td>
 
-            <strong>{{start_city}}</strong>
-        </div>
-        <div class="city">
-            <small>{{arrival date time}}</small>
+        <td>
+            {{st_date}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td>
+            Vagon
+        </td>
+        <td>
+            Seat
+        </td>
 
-            <strong>{{end_city}}</strong>
-        </div>
-    </section>
-    <section class="infos">
-        <TABLE>
-            <TR>
-                <TD>
-                    <div class="box">
-                        <small>TRAVEL</small>
-                        <strong><em>{{travel_id}</em></strong>
-                    </div>
-                </TD>
-                <TD>
-                    <div class="box">
-                        <small>TRAIN</small>
-                        <strong><em>{{train_id}</em></strong>
-                    </div>
-                </TD>
-                <TD>
-                    <div class="box">
-                        <small>class</small>
-                        <strong>{{ticket_class}}</strong>
-                    </div>
-                </TD>
-                <TD>
-                    <div class="box">
-                        <small>Person type</small>
-                        <strong>{{person_type}}</strong>
-                    </div>
-                </TD>
-            </TR>
-            <TR>
-                <TD>
-                    <div class="box">
-                        <small>Seat</small>
-                        <strong>{{seat_number}}</strong>
-                    </div>
-                </TD>
-                <TD>
-                    <div class="box">
-                        <small>Vagon</small>
-                        <strong>{{seat_number}}</strong>
-                    </div>
-                </TD>
-                <TD>
-                    <div class="box">
-                        <small>Duration</small>
-                        <strong>{{duration}}</strong>
-                    </div>
-                </TD>
-                <TD>
+        <td  class="dataLabel">
+            {{end_stat}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td  class="dataLabel">
+            {{vagon}}
+        </td>
+        <td  class="dataLabel">
+            {{seat}}
+        </td>
 
-                    <div class="box">
-                        <small>Distance</small>
-                        <strong>{{distance}}</strong>
-                    </div>
-                </TD>
-            </TR>
-        </TABLE>
+        <td>
+            {{end_date}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td>
+            Passager Type
+        </td>
+        <td>
+            Valid on
+        </td>
 
-    </section>
-    <section class="strap">
-        <div class="box">
-            <div class="passenger">
-                <small>passenger</small>
-                <strong>{{passenger_name}}</strong>
-            </div>
-            <div class="price">
-                <strong>{{price}}</strong> <!-- Displaying the price here -->
-            </div>
-        </div>
-    </section>
-    </section>
-</div>
+        <td rowspan="2" class="priceLabel">
+            {{price}} {{val}}
+        </td>
+    </tr>
+    <tr class="middle">
+        <td  class="dataLabel">
+            {{pas_type}}
+        </td>
+        <td  class="dataLabel">
+            {{valid}}
+        </td>
+    </tr>
 
+</table>
 </body>
-</html>

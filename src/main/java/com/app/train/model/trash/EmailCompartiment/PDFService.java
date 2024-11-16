@@ -16,9 +16,12 @@ public class PDFService {
         // Read the HTML template as a string
         String htmlContent = new String(Files.readAllBytes(Paths.get(templatePath)), StandardCharsets.UTF_8);
         // Replace placeholders with actual values
+
         for (Map.Entry<String, String> entry : placeholders.entrySet()) {
             htmlContent = htmlContent.replace("{{" + entry.getKey() + "}}", entry.getValue());
         }
+
+
         HtmlConverter.convertToPdf(htmlContent, new FileOutputStream(outputPdfPath));
     }
 }
