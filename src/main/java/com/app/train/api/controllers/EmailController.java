@@ -61,7 +61,7 @@ public class EmailController {
             log.error(e.getMessage());
         }
         // SENDING THE FILE
-        emailService.sendMailWithAttachment(info.travelerEmail(), "something in the body", "TICKETS", outputPdfPath);
+        emailService.sendMailWithAttachment(info.travelerEmail(), "TICKET", "TICKETS", outputPdfPath);
         //emailService.sendMailWithAttachment("1saganeanmarius@gmail.com","message body","test 01","src/main/java/com/app/train/model/trash/EmailCompartiment/ticketTemplates/ticketsPDF/Business Class Boarding Pass Ticket.pdf");
     }
 }
