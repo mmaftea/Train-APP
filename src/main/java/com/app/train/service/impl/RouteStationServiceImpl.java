@@ -4,6 +4,7 @@ import com.app.train.dao.interfaces.RouteRepository;
 import com.app.train.dao.interfaces.RouteStationRepository;
 import com.app.train.model.dto.TicketMetaData;
 import com.app.train.model.dto.TravelResult;
+import com.app.train.model.dto.UtilityResult;
 import com.app.train.model.entity.Route;
 import com.app.train.model.entity.Station;
 import com.app.train.model.entity.Travel;
@@ -30,6 +31,15 @@ public class RouteStationServiceImpl {
         return repository.findByIndexAndRoute(route, index).orElseThrow().getLineElement().getStation();
     }
 
+    public List<Station> getStationInBetween(TicketMetaData metaData) {
+        return repository.getStationsInBetween(convert(metaData, metaData.getStartStation()),
+                convert(metaData, metaData.getStopStation()), metaData.getTravel().getRouteId());
+    }
+
+    private Integer convert(TicketMetaData metaData, Station station) {
+        return repository.getIndexByStation(metaData.getTravel().getRouteId(), station.getId()).get();
+    }
+
     public List<TicketMetaData> squashResults(List<TravelResult> list, Integer startId) {
         if (list.size() == 1) {
             Result result = getResult(list, 0, startId);
@@ -41,6 +51,7 @@ public class RouteStationServiceImpl {
                             result.travelResult().getStartId()).orElseThrow().getLineElement().getStation())
                     .stopStation(repository.findByIndexAndRoute(result.travel().getRoute(),
                             result.travelResult().getEndId()).orElseThrow().getLineElement().getStation())
+                    .km(result.km())
                     .build());
         } else {
             List<TicketMetaData> ticketMetaData = new ArrayList<>();
@@ -49,6 +60,7 @@ public class RouteStationServiceImpl {
                 ticketMetaData.add(TicketMetaData.builder()
                         .departureTime(startPoint.toStartTime())
                         .travel(startPoint.travel())
+                        .km(startPoint.km())
                         .arrivalTime(startPoint.toStartTime().plusMinutes(startPoint.minutes()))
                         .startStation(repository.findByIndexAndRoute(startPoint.travel().getRoute(),
                                 startPoint.travelResult().getStartId()).orElseThrow().getLineElement().getStation())
@@ -73,10 +85,13 @@ public class RouteStationServiceImpl {
                 .build();
 
         var toStartTime = travel.getStartDateTime().plusMinutes(utilityService.calculateDistanceAndDuration(prevResult).getMinutes());
-        long minutes = utilityService.calculateDistanceAndDuration(travelResult).getMinutes();
-        return new Result(travelResult, travel, minutes, toStartTime);
+        UtilityResult utilityResult = utilityService.calculateDistanceAndDuration(travelResult);
+        long minutes = utilityResult.getMinutes();
+        double distance = utilityResult.getKm();
+        return new Result(travelResult, travel, minutes, distance, toStartTime);
     }
 
-    private record Result(TravelResult travelResult, Travel travel, long minutes, LocalDateTime toStartTime) {
+    private record Result(TravelResult travelResult, Travel travel, long minutes, double km,
+                          LocalDateTime toStartTime) {
     }
 }

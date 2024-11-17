@@ -1,6 +1,7 @@
 package com.app.train.service.impl;
 
 import com.app.train.dao.interfaces.StationRepository;
+import com.app.train.model.dto.TicketMetaData;
 import com.app.train.model.entity.Station;
 import com.app.train.model.exceptions.AppException;
 import jakarta.transaction.Transactional;

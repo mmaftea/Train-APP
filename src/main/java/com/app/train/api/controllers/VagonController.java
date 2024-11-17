@@ -1,6 +1,7 @@
 package com.app.train.api.controllers;
 
 import com.app.train.dao.interfaces.TrainVagonRepository;
+import com.app.train.dao.interfaces.VagonRepository;
 import com.app.train.model.entity.Vagon;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,12 @@ import java.util.List;
 public class VagonController {
 
     private final TrainVagonRepository trainVagonRepository;
+    private final VagonRepository vagonRepository;
+
+    @GetMapping("/{id}")
+    public Vagon getById(@RequestParam Integer id) {
+        return vagonRepository.findById(id).orElseThrow();
+    }
 
     @GetMapping
     public List<Vagon> getByTravel(@RequestParam Integer id) {

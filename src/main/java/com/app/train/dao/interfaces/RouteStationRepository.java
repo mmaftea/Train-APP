@@ -34,6 +34,9 @@ public interface RouteStationRepository extends JpaRepository<RouteStation, Inte
             "GROUP BY r.lineElement.trainLine")
     List<TrainLineInfo> getTrainLinesInBetweenStationsWithCount(@Param("start") Integer startIndex, @Param("end") Integer endIndex, @Param("route") Route route);
 
+    @Query("select r.lineElement.station from RouteStation r where r.stationIndex between ?1 and ?2 and r.route.id = ?3")
+    List<Station> getStationsInBetween(Integer stationIndexStart, Integer stationIndexEnd, Integer routeId);
+
 
     Optional<RouteStation> findByRouteAndStationIndex(Route route, int i);
 

@@ -40,7 +40,7 @@ public class EmailSenderService {
     }
     public void sendMailWithAttachment(String toEmail, String body, String subject, String attachment) {
         try {
-            log.info("send a simple mail with attachment file");
+            log.info("send a simple mail with attachment file {}",toEmail);
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
             mimeMessageHelper.setFrom("trenmoldavskii@gmail.com");

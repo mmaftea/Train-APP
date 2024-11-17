@@ -23,4 +23,5 @@ public class TicketMetaData {
     private Station stopStation;
     private LocalDateTime arrivalTime;
     private Travel travel;
+    private Double km;
 }

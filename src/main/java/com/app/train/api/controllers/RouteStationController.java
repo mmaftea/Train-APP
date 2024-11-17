@@ -32,8 +32,13 @@ public class RouteStationController {
     }
 
     @PostMapping("/squash")
-    public List<TicketMetaData> formatMetadata(@RequestBody List<TravelResult> resultList , @RequestParam Integer startId) {
-        return service.squashResults(resultList,startId);
+    public List<TicketMetaData> formatMetadata(@RequestBody List<TravelResult> resultList, @RequestParam Integer startId) {
+        return service.squashResults(resultList, startId);
+    }
+
+    @PostMapping("/meta")
+    public List<Station> stationListInBetween(@RequestBody TicketMetaData metaData) {
+        return service.getStationInBetween(metaData);
     }
 
 }

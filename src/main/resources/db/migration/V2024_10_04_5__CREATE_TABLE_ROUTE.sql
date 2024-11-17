@@ -13,3 +13,4 @@ CREATE TABLE RouteStation (
     FOREIGN KEY (line_Element) REFERENCES TrainLine_Element(id) ON DELETE CASCADE,
     FOREIGN KEY (route_id) REFERENCES Route(id) ON DELETE CASCADE
 );
+
